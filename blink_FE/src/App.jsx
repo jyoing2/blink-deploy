@@ -1,20 +1,26 @@
-import React, { useRef, useEffect, useState } from "react";
+import React from "react";
 import { Route, Routes } from "react-router-dom";
-//reset css 적용
-import { Reset } from "styled-reset";
-import "./App.css";
+import { createGlobalStyle } from "styled-components";
+import reset from "styled-reset";
 import Home from "./pages/home/Home";
 import { Layout } from "./components/Layout/Layout";
 
-function App() {
-  const [count, setCount] = useState(0);
+// Create a separate component for GlobalStyle to fix the hook error
+const GlobalStyleComponent = createGlobalStyle`
+  ${reset}
+  /* 추가적인 리셋이나 스타일 조정을 여기에 추가할 수 있습니다. */
+`;
 
+function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-      </Route>
-    </Routes>
+    <>
+      <GlobalStyleComponent />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+        </Route>
+      </Routes>
+    </>
   );
 }
 
