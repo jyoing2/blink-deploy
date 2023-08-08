@@ -22,9 +22,9 @@ function App() {
       <GlobalStyleComponent />
       <Routes>
         <Route path="/" element={<Layout />}>
-          {/* <Route index element={<Home />} /> */}
-          <Route index element={<Post/>}/>
-          </Route>
+          <Route index element={<Home />} />
+          {/* <Route index element={<Post/>}/> */}
+        </Route>
       </Routes>
     </>
   );
