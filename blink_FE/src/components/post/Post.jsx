@@ -1,9 +1,10 @@
-import React from "react";
+import * as React from 'react';
 import styled from "styled-components";
+import Post2 from'./Post2';
 
-const HomeContainer = styled.div`
+const PostContainer = styled.div`
   width: 1030px;
-  height: 806px;
+  height: 860px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,15 +16,15 @@ const HomeContainer = styled.div`
 const TopRow = styled.div`
   display: flex;
   width: 958px;
-  justify-content:space-around;
+  justify-content:space-between;
 `;
 
 const Search = styled.div`
   height:56px;
-  width:652px;
+  width:660px;
   border: 2px solid black;
   border-radius:10px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   display: flex;
   justify-content:center;
   align-items:center;
@@ -31,9 +32,11 @@ const Search = styled.div`
 
 const Search2 = styled(Search)`
   width:295px;
+  margin-left:30px
 `;
 
 const Lsquare = styled.div`
+margin-bottom: 30px;
 `;
 
 const SquareBox = styled.div`
@@ -50,18 +53,20 @@ const SquareBox2 = styled(SquareBox)`
 export default function Post() {
   return (
     <>
-    <HomeContainer>
+    <PostContainer>
       <TopRow>
         <Search>검색창임</Search>
         <Search2>두번째검색창임</Search2>
       </TopRow>
       <Lsquare>
-        <SquareBox>게시글창임</SquareBox>
+        <SquareBox>
+        <Post2></Post2>
+        </SquareBox>
       </Lsquare>
       <Lsquare>
         <SquareBox2>업로드창임</SquareBox2>
       </Lsquare>
-    </HomeContainer>
+    </PostContainer>
     </>
   );
 }
