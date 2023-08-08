@@ -14,9 +14,9 @@ export const Container = styled.div`
 export const Layout = () => {
   return (
     <Container>
-      <Nav />
+      {/* <Nav /> */}
       <Outlet />
-      <Footer />
+      {/* <Footer /> */}
     </Container>
   );
 };
