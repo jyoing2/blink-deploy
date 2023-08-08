@@ -10,7 +10,8 @@ export default function MinWidthButtonGroup() {
     <Card
       variant="outlined"
       sx={{
-        width: "50%",
+        width: "70%",
+        height: "50px",
         overflow: "auto",
       }}
     >

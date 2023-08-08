@@ -9,7 +9,7 @@ const ButtonGroup = styled(RadioGroup)`
   display: flex;
   flex-direction: row; /* 가로 방향으로 정렬 */
   justify-content: center;
-  background-color: red;
+  background-color: gray;
 `;
 
 export default function SortStandard() {

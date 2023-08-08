@@ -40,7 +40,23 @@ const Search2 = styled(Search)`
   width: 295px;
 `;
 
-const Lsquare = styled.div``;
+const Lsquare = styled.div`
+  overflow: auto;
+  max-height: 900px;
+  /* 스크롤 바 커스터마이징 */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #f2f2f2;
+  }
+`;
 
 const SquareBox = styled.div`
   width: 450px;
@@ -49,21 +65,18 @@ const SquareBox = styled.div`
   border: 2px solid black;
 `;
 
-const SquareBox2 = styled(SquareBox)`
-  height: 250px;
-`;
-
 export default function PostList() {
   return (
     <>
       <PostListContainer>
         <MinWidthButtonGroup />
         <SortStandard />
-        <TopRow>
-          <Search>PostList 타이틀</Search>
-          <Search2>PostList 입력칸</Search2>
-        </TopRow>
         <Lsquare>
+          <SquareBox>게시글창임</SquareBox>
+          <SquareBox>게시글창임</SquareBox>
+          <SquareBox>게시글창임</SquareBox>
+          <SquareBox>게시글창임</SquareBox>
+          <SquareBox>게시글창임</SquareBox>
           <SquareBox>게시글창임</SquareBox>
         </Lsquare>
       </PostListContainer>
