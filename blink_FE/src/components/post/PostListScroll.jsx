@@ -1,5 +1,8 @@
+// PostListScroll.jsx
+
 import React from "react";
 import styled from "styled-components";
+import InnerPost from "./InnerPost";
 
 const PostListSlideContainer = styled.div`
   overflow: auto;
@@ -20,62 +23,40 @@ const PostListSlideContainer = styled.div`
   }
 `;
 
-const PostListBox = styled.div`
-  background-color: #e7e8ed;
-
-  width: 450px;
-  height: 131px;
-  border-radius: 16px;
-  border: 2px solid black;
-`;
-
-const CompleteBtn = styled.div`
-  width: 90px;
-  height: 30px;
-  border: 1px solid blue;
-  border-radius: 10px;
-  background-color: darkblue;
-  color: white;
-  textalign: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const CateBtn = styled(CompleteBtn)`
-  background-color: inherit;
-  border-color: #0f1e33;
-  color: #0f1e33;
-  margin-left: 10px;
-`;
-
-const PostListBtnContainer = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  margin: 10px;
-`;
-
-const PostListTitle = styled.h1`
-  font-weight: bold;
-  font-size: 25px;
-`;
-
-const PostListContent = styled.p`
-  margin-top: 5px;
-  font-size: 15px;
-`;
+// post에 들어갈 text내용
+const postData = [
+  {
+    title: "첫 번째 포스트",
+    content: "첫 번째 포스트 내용...",
+  },
+  {
+    title: "두 번째 포스트",
+    content: "두 번째 포스트 내용...",
+  },
+  {
+    title: "세 번째 포스트",
+    content: "세 번째 포스트 내용...",
+  },
+  {
+    title: "네 번째 포스트",
+    content: "네 번째 포스트 내용...",
+  },
+  {
+    title: "다섯 번째 포스트",
+    content: "다섯 번째 포스트 내용...",
+  },
+  {
+    title: "여섯 번째 포스트",
+    content: "여섯 번째 포스트 내용...",
+  },
+];
 
 export default function PostListScroll() {
   return (
     <PostListSlideContainer>
-      <PostListBox>
-        <PostListBtnContainer>
-          <CompleteBtn>진행 중</CompleteBtn>
-          <CateBtn>찾아요</CateBtn>
-        </PostListBtnContainer>
-        <PostListTitle>인생이 힘들다</PostListTitle>
-        <PostListContent>전 인생이 뭔지 모르겠어요...</PostListContent>
-      </PostListBox>
+      {postData.map((post, index) => (
+        <InnerPost key={index} title={post.title} content={post.content} />
+      ))}
     </PostListSlideContainer>
   );
 }
