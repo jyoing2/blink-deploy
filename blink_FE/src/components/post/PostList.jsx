@@ -6,7 +6,7 @@ import PostListScroll from "./PostListScroll";
 
 const PostListContainer = styled.div`
   width: 523px;
-  height: 806px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;

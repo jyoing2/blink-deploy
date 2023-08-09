@@ -61,6 +61,30 @@ const postData = [
     inProgress: false,
     isFound: true,
   },
+  {
+    title: "일곱 번째 포스트",
+    content: "일곱 번째 포스트 내용...",
+    inProgress: true,
+    isFound: true,
+  },
+  {
+    title: "여덟 번째 포스트",
+    content: "여덟 번째 포스트 내용...",
+    inProgress: true,
+    isFound: true,
+  },
+  {
+    title: "아홉 번째 포스트",
+    content: "아홉 번째 포스트 내용...",
+    inProgress: false,
+    isFound: false,
+  },
+  {
+    title: "열 번째 포스트",
+    content: "열 번째 포스트 내용...",
+    inProgress: false,
+    isFound: true,
+  },
 ];
 
 export default function PostListScroll() {
