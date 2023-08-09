@@ -6,7 +6,6 @@ import reset from "styled-reset";
 import Home from "./pages/home/Home";
 import { Layout } from "./components/Layout/Layout";
 import Post from "./components/post/Post";
-import LoginForm from "./components/Login/LoginForm/LoginForm";
 import Signin from "./pages/Login/signin";
 
 // Create a separate component for GlobalStyle to fix the hook error
@@ -24,9 +23,9 @@ function App() {
       <GlobalStyleComponent />
       <Routes>
         {/* <Route path="/" element={<Layout />}> */}
-        <Route index element={<Home />} />
+        {/* <Route index element={<Home />} /> */}
         {/* <Route index element={<Post />} /> */}
-        {/* <Route index element={<Signin />}></Route> */}
+        <Route index element={<Signin />}></Route>
       </Routes>
     </>
   );

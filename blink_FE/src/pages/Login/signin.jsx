@@ -1,9 +1,21 @@
 import React, { useState } from "react";
-// import LoginForm from "./LoginForm"; // LoginForm 컴포넌트의 경로에 맞게 수정해야 합니다.
 import {
-  LoginFormWhole,
-  LoginInput,
-} from "../../components/Login/LoginForm/style";
+  IdFormComponent,
+  LoginButton,
+  PwFormComponent,
+} from "../../components/Login/LoginForm/LoginForm";
+import { SigninForm, SocialLogin } from "./style";
+import { LoginTitleComponent } from "../../components/Login/LoginForm/LoginTitle";
+import { SocialLoginButton } from "../../components/Login/SocialLogin/socialLogins";
+
+//image import
+import GoogleIcon from "../../assets/images/google.png";
+import KakaoIcon from "../../assets/images/kakao.png";
+import NaverIcon from "../../assets/images/naver.png";
+
+import { Line } from "../../components/Login/LoginLine/Line";
+
+//style import
 
 function Signin() {
   const [loginData, setLoginData] = useState({
@@ -27,24 +39,60 @@ function Signin() {
   };
 
   return (
-    <div>
-      <h1>로그인 페이지</h1>
-      <LoginFormWhole>
-        <LoginInput
-          handleInputChange={handleInputChange}
-          loginData={loginData}
-          placeholder="아이디를 입력하세요"
-          handleLoginClick={handleLoginClick}
+    <SigninForm>
+      <LoginTitleComponent LogintitleText="Login to Blink!" />
+      <IdFormComponent
+        handleInputChange={handleInputChange}
+        loginData={loginData}
+        idPlaceholder="아이디를 입력하세요"
+        // handleLoginClick={handleLoginClick}
+      />
+
+      <PwFormComponent
+        handleInputChange={handleInputChange}
+        loginData={loginData}
+        pwPlaceholder="비밀번호를 입력하세요"
+        // handleLoginClick={handleLoginClick}
+      />
+
+      <LoginButton handleLoginClick={handleLoginClick} buttonText="로그인" />
+
+      <Line text="or" />
+      {/* 소셜로그인 버튼 */}
+      <SocialLogin>
+        <SocialLoginButton
+          onClick={() => {
+            console.log("구글로그인");
+          }}
+          socialImg={GoogleIcon}
+          socialalt="구글 아이콘"
+          socialText="Google"
         />
 
-        <LoginInput
-          handleInputChange={handleInputChange}
-          loginData={loginData}
-          placeholder="비밀번호를 입력하세요"
-          handleLoginClick={handleLoginClick}
+        <SocialLoginButton
+          backgroundColor="#FFE812"
+          borderColor="none"
+          onClick={() => {
+            console.log("카카오톡 로그인");
+          }}
+          socialImg={KakaoIcon}
+          socialalt="카카오 아이콘"
+          socialText="kakao"
         />
-      </LoginFormWhole>
-    </div>
+
+        <SocialLoginButton
+          backgroundColor="#06C755"
+          borderColor="none"
+          onClick={() => {
+            console.log("네이버 로그인");
+          }}
+          socialImg={NaverIcon}
+          socialalt="네이버 아이콘"
+          socialText="Naver"
+          color="white"
+        />
+      </SocialLogin>
+    </SigninForm>
   );
 }
 
