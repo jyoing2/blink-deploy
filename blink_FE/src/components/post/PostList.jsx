@@ -1,9 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import MinWidthButtonGroup from "./MinWidthButtonGroup";
-import Card from "@mui/joy/Card";
-import Button from "@mui/joy/Button";
-import ButtonGroup from "@mui/joy/ButtonGroup";
 import SortStandard from "./SortStandard";
 import PostListScroll from "./PostListScroll";
 
@@ -22,12 +19,10 @@ const PostListContainer = styled.div`
 
 export default function PostList() {
   return (
-    <>
-      <PostListContainer>
-        <MinWidthButtonGroup />
-        <SortStandard />
-        <PostListScroll />
-      </PostListContainer>
-    </>
+    <PostListContainer>
+      <MinWidthButtonGroup />
+      <SortStandard />
+      <PostListScroll />
+    </PostListContainer>
   );
 }
