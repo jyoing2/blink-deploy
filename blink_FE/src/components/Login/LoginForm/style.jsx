@@ -8,8 +8,30 @@ export const LoginFormWhole = styled.div`
   border: 3px solid black;
 `;
 
-export const LoginInput = styled.input`
-  border: 1px solid red;
+export const IdForm = styled.input`
   display: flex;
   flex-direction: column;
+`;
+
+export const PwForm = styled.input`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const LoginTitle = styled.div``;
+
+export const StyledLoginButton = styled.button`
+  background-color: #3865bf;
+  color: white;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0 0 5px rgba(25, 33, 48, 0.6); /* 강조 효과를 위한 그림자 */
+    outline: none;
+  }
+`;
+
+export const StyledLoginTitle = styled.div`
+  font-size: xx-large;
+  color: #34446d;
+  font-weight: 600;
 `;
