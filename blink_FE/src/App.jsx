@@ -23,9 +23,9 @@ function App() {
       <GlobalStyleComponent />
       <Routes>
         {/* <Route path="/" element={<Layout />}> */}
-        {/* <Route index element={<Home />} /> */}
+        <Route index element={<Home />} />
         {/* <Route index element={<Post />} /> */}
-        <Route index element={<Signin />}></Route>
+        {/* <Route index element={<Signin />}></Route> */}
       </Routes>
     </>
   );
