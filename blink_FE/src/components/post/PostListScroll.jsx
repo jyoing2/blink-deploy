@@ -28,26 +28,38 @@ const postData = [
   {
     title: "첫 번째 포스트",
     content: "첫 번째 포스트 내용...",
+    inProgress: true,
+    isFound: true,
   },
   {
     title: "두 번째 포스트",
     content: "두 번째 포스트 내용...",
+    inProgress: false,
+    isFound: false,
   },
   {
     title: "세 번째 포스트",
     content: "세 번째 포스트 내용...",
+    inProgress: true,
+    isFound: false,
   },
   {
     title: "네 번째 포스트",
     content: "네 번째 포스트 내용...",
+    inProgress: false,
+    isFound: true,
   },
   {
     title: "다섯 번째 포스트",
     content: "다섯 번째 포스트 내용...",
+    inProgress: true,
+    isFound: false,
   },
   {
     title: "여섯 번째 포스트",
     content: "여섯 번째 포스트 내용...",
+    inProgress: false,
+    isFound: true,
   },
 ];
 
@@ -55,7 +67,13 @@ export default function PostListScroll() {
   return (
     <PostListSlideContainer>
       {postData.map((post, index) => (
-        <InnerPost key={index} title={post.title} content={post.content} />
+        <InnerPost
+          key={index}
+          title={post.title}
+          content={post.content}
+          inProgress={post.inProgress}
+          isFound={post.isFound}
+        />
       ))}
     </PostListSlideContainer>
   );

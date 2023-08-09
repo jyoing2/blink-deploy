@@ -67,12 +67,12 @@ const PostListContent = styled.p`
   font-size: 15px;
 `;
 
-export default function InnerPost({ title, content }) {
+export default function InnerPost({ title, content, inProgress, isFound }) {
   return (
     <PostListBox>
       <PostListBtnContainer>
-        <CompleteBtn>진행 중</CompleteBtn>
-        <CateBtn>찾아요</CateBtn>
+        <CompleteBtn>{inProgress ? "진행중" : "진행 완료"}</CompleteBtn>
+        <CateBtn>{isFound ? "찾아요" : "제보해요"}</CateBtn>
       </PostListBtnContainer>
       <PostListTitle>{title}</PostListTitle>
       <PostListContent>{content}</PostListContent>
