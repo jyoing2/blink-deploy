@@ -23,7 +23,7 @@ function App() {
     <>
       <GlobalStyleComponent />
       <Routes>
-        {/* <Route path="/" element={<Layout />}> */}
+        <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         {/* <Route index element={<Post />} /> */}
         {/* <Route index element={<Signin />}></Route> */}
