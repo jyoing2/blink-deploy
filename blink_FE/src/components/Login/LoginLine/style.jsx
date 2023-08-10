@@ -3,11 +3,11 @@
 import styled from "styled-components";
 
 export const LineContainer = styled.div`
-  width: 100%;
+  width: 80%;
   text-align: center;
-  border-bottom: 1px solid #aaa;
+  border-bottom: 1px solid rgb(170, 170, 170);
   line-height: 0.1em;
-  margin: 10px 0 20px;
+  margin: 70px 0px 70px;
 `;
 
 export const LineText = styled.span`
