@@ -7,7 +7,7 @@ const HomeContainer = styled.div`
   /* margin-left: 200px; */
   width: 1920px;
   height: 1080px;
-  background-color: gray;
+  background-color: green;
   display: flex;
   justify-content: flex-start;
 `;

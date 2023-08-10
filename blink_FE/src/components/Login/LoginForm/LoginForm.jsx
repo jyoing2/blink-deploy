@@ -1,30 +1,47 @@
-import * as React from "react";
-import { LoginFormWhole, LoginInput } from "./style";
+// LoginForm.jsx
 
-export default function LoginForm({
+import React from "react";
+import { IdForm, PwForm } from "./style";
+import { StyledLoginButton } from "./style";
+
+export function IdFormComponent({
   handleInputChange,
-  loginData,
   idPlaceholder,
-  pwPlaceholder,
+  loginData,
 }) {
   return (
-    <LoginFormWhole>
-      <LoginInput
-        required
-        placeholder={idPlaceholder}
-        type="text"
-        id="id" // 아이디 입력 필드의 name
-        onChange={handleInputChange}
-        // value={loginData.id}
-      />
-      <LoginInput
-        required
-        placeholder={pwPlaceholder}
-        type="password"
-        id="pw" // 비밀번호 입력 필드의 name
-        onChange={handleInputChange}
-        // value={loginData.pw} // loginData 객체의 password 프로퍼티 사용
-      />
-    </LoginFormWhole>
+    <IdForm
+      required
+      placeholder={idPlaceholder}
+      type="text"
+      id="id"
+      onChange={handleInputChange}
+      value={loginData.id}
+    />
+  );
+}
+
+export function PwFormComponent({
+  handleInputChange,
+  pwPlaceholder,
+  loginData,
+}) {
+  return (
+    <PwForm
+      required
+      placeholder={pwPlaceholder}
+      type="password"
+      id="pw"
+      onChange={handleInputChange}
+      value={loginData.pw}
+    />
+  );
+}
+
+export function LoginButton({ handleLoginClick, buttonText }) {
+  return (
+    <StyledLoginButton onClick={handleLoginClick}>
+      {buttonText}
+    </StyledLoginButton>
   );
 }
