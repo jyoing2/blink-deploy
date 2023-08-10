@@ -40,10 +40,11 @@ function Signin() {
   };
 
   return (
+    // <SigninWhole>
     <SigninWrapper>
       <LoginNavigates
-        LoginNavigatetitle="Welcome Back!"
-        LoginNavigatecotent="signup으로 넘어가는 버튼이 구현되어있는 곳"
+        LoginNavigatetitle="안녕하세요! Blink입니다!"
+        LoginNavigatecotent="처음이신가요? 회원가입하고 멋진 블랙 박스 어쩌구 조정중"
         handleLoginClick={handleLoginClick}
         buttonText="Sign up"
       />
@@ -102,6 +103,7 @@ function Signin() {
         </SocialLogin>
       </SigninForm>
     </SigninWrapper>
+    // </SigninWhole>
   );
 }
 

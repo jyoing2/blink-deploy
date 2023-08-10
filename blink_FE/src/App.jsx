@@ -18,18 +18,30 @@ const GlobalStyleComponent = createGlobalStyle`
   background-color: blue;
 `;
 
+const Wrapper = styled.div`
+  margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+`;
+
 function App() {
   return (
     <>
       <GlobalStyleComponent />
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          {/* <Route index element={<Home />} /> */}
+      <Wrapper>
+        <Routes>
+          {/* <Route path="/" element={<Layout />} /> */}
+          <Route index element={<Home />} />
           <Route index element={<Map />} />
-        </Route>
-        {/* <Route index element={<Post />} /> */}
-        {/* <Route index element={<Signin />}></Route> */}
-      </Routes>
+          {/* </Route> */}
+          {/* <Route index element={<Post />} /> */}
+          {/* <Route index element={<Signin />}></Route> */}
+        </Routes>
+      </Wrapper>
     </>
   );
 }

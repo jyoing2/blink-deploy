@@ -11,18 +11,34 @@ export const LoginFormWhole = styled.div`
 export const IdForm = styled.input`
   display: flex;
   flex-direction: column;
+  width: 26rem;
+  height: 4rem;
+  background: rgb(248, 248, 250);
+  border: none;
+  border-radius: 10px;
+  padding-left: 15px;
+  margin-bottom: 1rem;
 `;
 
 export const PwForm = styled.input`
   display: flex;
   flex-direction: column;
+  width: 26rem;
+  height: 4rem;
+  background: rgb(248, 248, 250);
+  border: none;
+  border-radius: 10px;
+  padding-left: 15px;
+  margin-bottom: 3.3rem;
 `;
 
-export const LoginTitle = styled.div``;
+// export const LoginTitle = styled.div``;
 
 export const StyledLoginButton = styled.button`
   background-color: #3865bf;
   color: white;
+  width: 13rem;
+  height: 3rem;
   cursor: pointer;
   &:hover {
     box-shadow: 0 0 5px rgba(25, 33, 48, 0.6); /* 강조 효과를 위한 그림자 */
@@ -31,7 +47,9 @@ export const StyledLoginButton = styled.button`
 `;
 
 export const StyledLoginTitle = styled.div`
-  font-size: xx-large;
-  color: #34446d;
-  font-weight: 600;
+  color: rgb(52, 68, 109);
+  position: relative;
+  top: -50px;
+  font-size: 300%;
+  font-weight: bolder;
 `;
