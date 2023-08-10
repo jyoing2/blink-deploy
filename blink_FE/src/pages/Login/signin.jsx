@@ -4,9 +4,10 @@ import {
   LoginButton,
   PwFormComponent,
 } from "../../components/Login/LoginForm/LoginForm";
-import { SigninForm, SocialLogin } from "./style";
+import { SigninForm, SocialLogin, SigninWrapper } from "./style";
 import { LoginTitleComponent } from "../../components/Login/LoginForm/LoginTitle";
 import { SocialLoginButton } from "../../components/Login/SocialLogin/socialLogins";
+import { LoginNavigates } from "../../components/Login/LoginNavigateBar/LoginNavigates";
 
 //image import
 import GoogleIcon from "../../assets/images/google.png";
@@ -39,60 +40,68 @@ function Signin() {
   };
 
   return (
-    <SigninForm>
-      <LoginTitleComponent LogintitleText="Login to Blink!" />
-      <IdFormComponent
-        handleInputChange={handleInputChange}
-        loginData={loginData}
-        idPlaceholder="아이디를 입력하세요"
-        // handleLoginClick={handleLoginClick}
+    <SigninWrapper>
+      <LoginNavigates
+        LoginNavigatetitle="Welcome Back!"
+        LoginNavigatecotent="signup으로 넘어가는 버튼이 구현되어있는 곳"
+        handleLoginClick={handleLoginClick}
+        buttonText="Sign up"
       />
-
-      <PwFormComponent
-        handleInputChange={handleInputChange}
-        loginData={loginData}
-        pwPlaceholder="비밀번호를 입력하세요"
-        // handleLoginClick={handleLoginClick}
-      />
-
-      <LoginButton handleLoginClick={handleLoginClick} buttonText="로그인" />
-
-      <Line text="or" />
-      {/* 소셜로그인 버튼 */}
-      <SocialLogin>
-        <SocialLoginButton
-          onClick={() => {
-            console.log("구글로그인");
-          }}
-          socialImg={GoogleIcon}
-          socialalt="구글 아이콘"
-          socialText="Google"
+      <SigninForm>
+        <LoginTitleComponent LogintitleText="Login to Blink!" />
+        <IdFormComponent
+          handleInputChange={handleInputChange}
+          loginData={loginData}
+          idPlaceholder="아이디를 입력하세요"
+          // handleLoginClick={handleLoginClick}
         />
 
-        <SocialLoginButton
-          backgroundColor="#FFE812"
-          borderColor="none"
-          onClick={() => {
-            console.log("카카오톡 로그인");
-          }}
-          socialImg={KakaoIcon}
-          socialalt="카카오 아이콘"
-          socialText="kakao"
+        <PwFormComponent
+          handleInputChange={handleInputChange}
+          loginData={loginData}
+          pwPlaceholder="비밀번호를 입력하세요"
+          // handleLoginClick={handleLoginClick}
         />
 
-        <SocialLoginButton
-          backgroundColor="#06C755"
-          borderColor="none"
-          onClick={() => {
-            console.log("네이버 로그인");
-          }}
-          socialImg={NaverIcon}
-          socialalt="네이버 아이콘"
-          socialText="Naver"
-          color="white"
-        />
-      </SocialLogin>
-    </SigninForm>
+        <LoginButton handleLoginClick={handleLoginClick} buttonText="로그인" />
+
+        <Line text="or" />
+        {/* 소셜로그인 버튼 */}
+        <SocialLogin>
+          <SocialLoginButton
+            onClick={() => {
+              console.log("구글로그인");
+            }}
+            socialImg={GoogleIcon}
+            socialalt="구글 아이콘"
+            socialText="Google"
+          />
+
+          <SocialLoginButton
+            backgroundColor="#FFE812"
+            borderColor="none"
+            onClick={() => {
+              console.log("카카오톡 로그인");
+            }}
+            socialImg={KakaoIcon}
+            socialalt="카카오 아이콘"
+            socialText="kakao"
+          />
+
+          <SocialLoginButton
+            backgroundColor="#06C755"
+            borderColor="none"
+            onClick={() => {
+              console.log("네이버 로그인");
+            }}
+            socialImg={NaverIcon}
+            socialalt="네이버 아이콘"
+            socialText="Naver"
+            color="white"
+          />
+        </SocialLogin>
+      </SigninForm>
+    </SigninWrapper>
   );
 }
 
