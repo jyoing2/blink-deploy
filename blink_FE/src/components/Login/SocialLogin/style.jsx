@@ -4,23 +4,27 @@ import styled from "styled-components";
 
 export const SocialLogin = styled.div`
   border: 1px solid ${(props) => props.borderColor || "black"};
-  border-radius: 10%;
-  width: 100px;
-  height: 30px;
+  width: 12rem;
+  height: 3rem;
   cursor: pointer;
+  display: flex;
+
+  align-items: center;
+  margin-right: 1rem;
   background-color: ${(props) => props.backgroundColor || "none"};
 `;
 
 export const SocialLoginImg = styled.img`
   width: 25px;
-  height: auto; // To maintain the aspect ratio
+  height: auto;
+  margin-left: 15px;
 `;
 
 export const SocialLoginText = styled.span`
-  font-size: 16px;
-  font-weight: 500;
-  top: -16%;
+  font-size: 24px;
+  font-weight: 400;
   right: -7%;
   position: relative;
+  margin-left: 20px;
   color: ${(props) => props.color || "black"};
 `;

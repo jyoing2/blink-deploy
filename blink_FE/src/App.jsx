@@ -18,6 +18,16 @@ const GlobalStyleComponent = createGlobalStyle`
   background-color: blue;
 `;
 
+const Wrapper = styled.div`
+  margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+`;
+
 function App() {
   return (
     <>
