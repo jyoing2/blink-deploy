@@ -6,8 +6,8 @@ import reset from "styled-reset";
 import Home from "./pages/home/Home";
 import { Layout } from "./components/Layout/Layout";
 import Post from "./components/post/Post";
-import LoginForm from "./components/Login/LoginForm/LoginForm";
 import Signin from "./pages/Login/signin";
+import KMap from "./components/post/KMap";
 
 // Create a separate component for GlobalStyle to fix the hook error
 const GlobalStyleComponent = createGlobalStyle`
@@ -18,14 +18,26 @@ const GlobalStyleComponent = createGlobalStyle`
   background-color: blue;
 `;
 
+const Wrapper = styled.div`
+  margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+`;
+
 function App() {
   return (
     <>
       <GlobalStyleComponent />
       <Routes>
-        {/* <Route path="/" element={<Layout />}> */}
-        {/* <Route index element={<Home />} /> */}
-        <Route index element={<Post/>}/>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          {/* <Route index element={<KMap />} /> */}
+        </Route>
+        {/* <Route index element={<Post />} /> */}
         {/* <Route index element={<Signin />}></Route> */}
       </Routes>
     </>
