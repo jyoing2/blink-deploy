@@ -7,7 +7,7 @@ import Home from "./pages/home/Home";
 import { Layout } from "./components/Layout/Layout";
 import Post from "./components/post/Post";
 import Signin from "./pages/Login/signin";
-import Map from "./components/post/Map";
+import KMap from "./components/post/KMap";
 
 // Create a separate component for GlobalStyle to fix the hook error
 const GlobalStyleComponent = createGlobalStyle`
@@ -24,8 +24,8 @@ function App() {
       <GlobalStyleComponent />
       <Routes>
         <Route path="/" element={<Layout />}>
-          {/* <Route index element={<Home />} /> */}
-          <Route index element={<Map />} />
+          <Route index element={<Home />} />
+          {/* <Route index element={<KMap />} /> */}
         </Route>
         {/* <Route index element={<Post />} /> */}
         {/* <Route index element={<Signin />}></Route> */}

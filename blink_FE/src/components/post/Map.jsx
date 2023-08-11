@@ -30,7 +30,7 @@ function GMap() {
     <GMapContainer>
       <GoogleMap
         zoom={10}
-        center={{ lat: 44, lng: -80 }}
+        center={{ lat: 37.55817656177891, lng: 127.0009620086361 }}
         mapContainerStyle={mapContainerStyle} // 수정된 부분
       >
         Map
