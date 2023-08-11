@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import styled from "styled-components";
 import KMap from "../../components/post/KMap";
+import GMap from "../../components/post/GMap";
 import Map from "../../components/post/Map";
 import PostList from "../../components/post/PostList";
 
@@ -17,7 +18,7 @@ export default function Home() {
   return (
     <HomeContainer>
       <PostList />
-      <Map />
+      <GMap />
     </HomeContainer>
   );
 }
