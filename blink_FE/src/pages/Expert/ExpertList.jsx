@@ -110,7 +110,10 @@ export default function ExpertList() {
         {cardData.map((card, index) => (
           <Card key={index}>
             <CardImage src={card.imageUrl} alt="변호사 이미지" />
-            <CardText>유저 ID: {card.userId}</CardText>
+            <CardText>
+              <p>변호사</p>
+              {card.userId}
+            </CardText>
             <CardText>경력: {card.experience}</CardText>
           </Card>
         ))}

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
+// import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 
 const mapContainerStyle = {
   width: "1930px",
