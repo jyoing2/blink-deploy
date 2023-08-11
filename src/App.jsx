@@ -35,10 +35,11 @@ function App() {
       <GlobalStyleComponent />
       <Wrapper>
         <Routes>
-          {/* <Route path="/" element={<Layout />} /> */}
-          <Route index element={<Home />} />
-          <Route index element={<Map />} />
-          {/* </Route> */}
+          <Route path="/" element={<Layout />} />
+          <Route index element={<ExpertList />} />
+          {/* <Route index element={<Home />} /> */}
+          {/* <Route index element={<Map />} /> */}
+          {/* </Route> */} index
           {/* <Route index element={<Post />} /> */}
           {/* <Route index element={<Signin />}></Route> */}
         </Routes>
