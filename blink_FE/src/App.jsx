@@ -9,6 +9,7 @@ import Post from "./components/post/Post";
 import Signin from "./pages/Login/signin";
 import KMap from "./components/post/KMap";
 import ExpertList from "./pages/Expert/ExpertList";
+import ExpertDetail from "./pages/Expert/ExpertDetail";
 
 // Create a separate component for GlobalStyle to fix the hook error
 const GlobalStyleComponent = createGlobalStyle`
@@ -34,8 +35,10 @@ function App() {
     <>
       <GlobalStyleComponent />
       <Routes>
-        <Route path="/" element={<Layout />} />
-        <Route index element={<ExpertList />} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<ExpertDetail />} />
+          {/* <Route index element={<ExpertList />} /> */}
+        </Route>
         {/* <Route index element={<KMap />} /> */}
         {/* <Route index element={<Post />} /> */}
         {/* <Route index element={<Signin />}></Route> */}

@@ -72,3 +72,76 @@ export const Wrapping = styled.div`
   margin-top: 15px;
   font-size: 20px;
 `;
+
+export const Box = styled.div`
+  width: 460px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  margin-left: 200px;
+  background-color: #ebe6e6;
+  display: flex;
+  padding-top: 20px;
+  padding-left: 40px;
+  z-index: 2;
+  flex-direction: column;
+`;
+
+export const DetailImg = styled.div`
+  width: 210px;
+  height: 200px;
+  margin-top: 15px;
+  border-radius: 15px;
+  background-color: black;
+  margin-left: auto;
+  margin-right: auto;
+`;
+export const Section = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  display: flex;
+`;
+
+export const Major = styled.p`
+  color: gray;
+  font-size: 20px;
+`;
+
+export const DetailName = styled.p`
+  color: black;
+  font-size: 35px;
+  font-weight: 600;
+  line-height: 20px;
+`;
+
+export const RequestBtn = styled.input`
+  width: 130px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #34446d;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+`;
+
+export const Commentbox = styled.div`
+  height: fit-content;
+  width: auto;
+  margin-top: 30px;
+`;
+
+export const CommentSub = styled.p`
+  font-weight: 700;
+  font-size: 25px;
+`;
+
+export const Commentmore = styled.p`
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 15px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid gray;
+`;
