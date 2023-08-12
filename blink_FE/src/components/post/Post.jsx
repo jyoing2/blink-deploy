@@ -5,8 +5,7 @@ import styled from "styled-components";
 import AdrSearch from "./AdrSearch";
 import { StyledSearchResult, SearchResultInputs } from "./SearchResult";
 import Calendartwo from "./DatePicker";
-import DaumPostcode from 'react-daum-postcode';
-
+import FileUpload from "./FileUpload";
 
 
 const AdrSearchContainer = styled.div`
@@ -107,6 +106,17 @@ const Search2 = styled(Search)`
   cursor: pointer;
 `;
 
+const Thumbnail = styled.img`
+  max-width: 300px;
+  max-height: 200px;
+  object-fit: contain;
+`;
+
+const ThumbnailsContainer = styled.div`
+  display: flex;
+  gap: 10px;
+`;
+
 export default function Post() {
   const [showAdrSearch, setShowAdrSearch] = useState(false);
   const [addressInfo, setAddressInfo] = useState({
@@ -141,12 +151,18 @@ export default function Post() {
     onUpdateAddress(updatedAddressInfo);
     setSelectedAddress(updatedAddressInfo.address); // Update selected address
   };
-  
-  const handleFileUpload = (event) => {
-    const uploadedFile = event.target.files[0];
-    // Handle the uploaded file as needed
-    console.log("Uploaded file:", uploadedFile);
+
+  const [uploadedFiles, setUploadedFiles] = useState([]);
+
+  const handleFileUpload = (files) => {
+    if (files.length > 2) {
+      alert("You can only upload up to 2 files.");
+      return;
+    }
+
+    setUploadedFiles(files);
   };
+
 
   return (
     <>
@@ -158,8 +174,6 @@ export default function Post() {
           >
             {addressInfo.address ? addressInfo.address : "Click here to show AdrSearch"}
           </Search>
-
-
 
           <Search2 onClick={() => setShowDatePicker(!showDatePicker)}>
             {selectedDate ? selectedDate.toLocaleDateString() : "Select a date"}
@@ -211,8 +225,13 @@ export default function Post() {
           </SquareBox>
         </Lsquare>
         <SquareBox2>
-          파일 업로드
-          <input type="file" accept=".png, .jpg, .jpeg, .pdf" onChange={handleFileUpload} />
+          <FileUpload onFileUpload={handleFileUpload} maxFiles={2} />
+          {/* Display thumbnail previews for uploaded image files */}
+          <ThumbnailsContainer>
+            {uploadedFiles.map((file, index) => (
+              <Thumbnail key={index} src={URL.createObjectURL(file)} alt={`Thumbnail ${index + 1}`} />
+            ))}
+          </ThumbnailsContainer>
         </SquareBox2>
       </PostContainer>
     </>
