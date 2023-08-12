@@ -5,6 +5,9 @@ import styled from "styled-components";
 import AdrSearch from "./AdrSearch";
 import { StyledSearchResult, SearchResultInputs } from "./SearchResult";
 import Calendartwo from "./DatePicker";
+import DaumPostcode from 'react-daum-postcode';
+
+
 
 const AdrSearchContainer = styled.div`
   position: absolute;
@@ -114,6 +117,7 @@ export default function Post() {
 
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedAddress, setSelectedAddress] = useState("");
   
   const toggleAdrSearch = () => {
     setShowAdrSearch(!showAdrSearch);
@@ -125,11 +129,33 @@ export default function Post() {
     setShowDatePicker(false); // Hide the date picker
   };
 
+  const handleComplete = (data) => {
+    const updatedAddressInfo = {
+      postcode: data.zonecode,
+      address: data.roadAddress || data.jibunAddress,
+      detailAddress: '',
+      extraAddress: data.userSelectedType === 'R' ? data.bname || data.buildingName : '',
+    };
+    
+    setAddressInfo(updatedAddressInfo);
+    onUpdateAddress(updatedAddressInfo);
+    setSelectedAddress(updatedAddressInfo.address); // Update selected address
+  };
+  
+
   return (
     <>
       <PostContainer>
         <TopRow>
-        <div onClick={toggleAdrSearch}>Click here to show AdrSearch</div>
+        <Search
+            onClick={toggleAdrSearch}
+            selectedAddress={addressInfo.address} // Pass the selected address
+          >
+            {addressInfo.address ? addressInfo.address : "Click here to show AdrSearch"}
+          </Search>
+
+
+
           <Search2 onClick={() => setShowDatePicker(!showDatePicker)}>
             {selectedDate ? selectedDate.toLocaleDateString() : "Select a date"}
           </Search2>
@@ -146,7 +172,10 @@ export default function Post() {
         {showAdrSearch && (
           <StyledSearchResult>
             <SearchResultInputs
-              {...addressInfo}
+              postcode={addressInfo.postcode}
+              address={addressInfo.address}
+              detailAddress={addressInfo.detailAddress}
+              extraAddress={addressInfo.extraAddress}
               handleDetailAddressChange={(e) =>
                 setAddressInfo({
                   ...addressInfo,

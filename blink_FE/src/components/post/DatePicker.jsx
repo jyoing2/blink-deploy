@@ -22,13 +22,6 @@ const DotBox = styled.div`
   justify-content: center;
   align-items: center;
 `;
-const CalendarDot = styled.div`
-  margin-top: 5px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #f87171;
-`;
 
 export default function Calendartwo({ user, onSelectDate }) {
   const [value, onChange] = useState(new Date());
@@ -38,11 +31,11 @@ export default function Calendartwo({ user, onSelectDate }) {
     onChange(date);
     onSelectDate(date); // Call the onSelectDate prop with the selected date
   };
-
+  
   return (
     <Container>
       <Calendar
-        onChange={handleDateSelect} // Use the custom handler
+        onChange={handleDateSelect} // Use the handleDateSelect function
         value={value}
         formatDay={(locale, date) =>
           //xx일 -> xx 으로 format 변경
@@ -63,20 +56,8 @@ export default function Calendartwo({ user, onSelectDate }) {
                 })
               )
           );
-          return (
-            <>
-              <DotBox>{exist && <CalendarDot />}</DotBox>
-            </>
-          );
         }}
       />
-      <h1>
-        {new Date(value).toLocaleDateString("ko", {
-          year: "numeric",
-          month: "short",
-          day: "numeric",
-        })}
-      </h1>
     </Container>
   );
 }

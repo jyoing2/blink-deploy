@@ -8,17 +8,15 @@ import { StyledSearchResult, SearchResultInputs } from './SearchResult';
 
 
 const AdrSearchContainer = styled.div`
-  position: fixed;
-  top: 50%; /* Center vertically */
-  transform: translate(-50%, -50%);
-  z-index: 1000; /* Higher z-index to ensure it's above other elements */
+  position: absolute;
+  transform: translate(-50%, -28%);
   background-color: white; /* Set the background color */
   padding: 20px; /* Add padding for spacing */
   border: 2px solid black; /* Add a border */
   border-radius: 10px; /* Rounded corners */
 `;
 
-export default function AddressSearch({ onUpdateAddress, showAdrSearch }) {
+export default function AddressSearch({ onUpdateAddress, showAdrSearch, onSelectAddress }) {
   const [addressInfo, setAddressInfo] = useState({
     postcode: '',
     address: '',
@@ -36,21 +34,14 @@ export default function AddressSearch({ onUpdateAddress, showAdrSearch }) {
     
     setAddressInfo(updatedAddressInfo);
     onUpdateAddress(updatedAddressInfo);
+    onSelectAddress(updatedAddressInfo.address); // Pass the selected address back
   };
+  
 
   return (
     <AdrSearchContainer show={showAdrSearch}>
-      <DaumPostcode onComplete={handleComplete} />
-      {showAdrSearch && (
-        <StyledSearchResult>
-          <SearchResultInputs
-            {...addressInfo}
-            handleDetailAddressChange={(e) =>
-              setAddressInfo({ ...addressInfo, detailAddress: e.target.value })
-            }
-          />
-        </StyledSearchResult>
-      )}
+      <DaumPostcode onComplete={handleComplete} /> 
+      {/* This triggers the completion */}
     </AdrSearchContainer>
   );
 }
