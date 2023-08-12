@@ -4,7 +4,6 @@
 import React, { useState } from 'react';
 import DaumPostcode from 'react-daum-postcode';
 import styled from 'styled-components';
-import { StyledSearchResult, SearchResultInputs } from './SearchResult';
 
 
 const AdrSearchContainer = styled.div`
@@ -16,7 +15,7 @@ const AdrSearchContainer = styled.div`
   border-radius: 10px; /* Rounded corners */
 `;
 
-export default function AddressSearch({ onUpdateAddress, showAdrSearch, onSelectAddress }) {
+export default function AddressSearch({ onUpdateAddress, showAdrSearch}) {
   const [addressInfo, setAddressInfo] = useState({
     postcode: '',
     address: '',
@@ -31,10 +30,10 @@ export default function AddressSearch({ onUpdateAddress, showAdrSearch, onSelect
       detailAddress: '',
       extraAddress: data.userSelectedType === 'R' ? data.bname || data.buildingName : '',
     };
-    
+
     setAddressInfo(updatedAddressInfo);
     onUpdateAddress(updatedAddressInfo);
-    onSelectAddress(updatedAddressInfo.address); // Pass the selected address back
+    setShowAdrSearch(false); // Close the AdrSearch window after address selection
   };
   
 

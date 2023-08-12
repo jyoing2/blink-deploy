@@ -76,10 +76,6 @@ const FormRow = styled.div`
   padding: 10px 20px;
 `;
 
-const Label = styled.label`
-  background-color: black;
-`;
-
 const Select = styled.select`
   width: 151px;
   height: 40px;
@@ -131,7 +127,6 @@ export default function Post() {
   const [addressInfo, setAddressInfo] = useState({
     postcode: "",
     address: "",
-    // ... other fields
   });
 
   const [showDatePicker, setShowDatePicker] = useState(false);
@@ -155,11 +150,13 @@ export default function Post() {
       detailAddress: '',
       extraAddress: data.userSelectedType === 'R' ? data.bname || data.buildingName : '',
     };
-    
+
     setAddressInfo(updatedAddressInfo);
     onUpdateAddress(updatedAddressInfo);
     setSelectedAddress(updatedAddressInfo.address); // Update selected address
+    setShowAdrSearch(false); // Close the AdrSearch window after address selection
   };
+
 
   const [uploadedFiles, setUploadedFiles] = useState([]);
 
@@ -193,6 +190,7 @@ export default function Post() {
             {selectedDate ? selectedDate.toLocaleDateString() : "Select a date"}
           </Search2>
         </TopRow>
+
         <AdrSearchContainer show={showAdrSearch || showDatePicker}>
           {showAdrSearch ? (
             <AdrSearch onUpdateAddress={setAddressInfo} showAdrSearch={showAdrSearch} />
@@ -238,6 +236,7 @@ export default function Post() {
             </FormRow>
           </SquareBox>
         </Lsquare>
+        
         <SquareBox2>
         <FileUpload
           onFileUpload={handleFileUpload}
