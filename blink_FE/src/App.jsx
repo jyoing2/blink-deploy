@@ -11,7 +11,7 @@ import KMap from "./components/post/KMap";
 import ExpertList from "./pages/Expert/ExpertList";
 import ExpertDetail from "./pages/Expert/ExpertDetail";
 
-// Create a separate component for GlobalStyle to fix the hook error
+/* 추가적인 리셋이나 스타일 조정을 여기에 추가할 수 있습니다. */
 const GlobalStyleComponent = createGlobalStyle`
   ${reset}
   /* 추가적인 리셋이나 스타일 조정을 여기에 추가할 수 있습니다. */
@@ -35,14 +35,11 @@ function App() {
     <>
       <GlobalStyleComponent />
       <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<ExpertDetail />} />
-          {/* <Route index element={<ExpertList />} /> */}
-        </Route>
-        {/* <Route index element={<KMap />} /> */}
+        <Route path="/" element={<Layout />} />
+        <Route index element={<Home />} />
+        <Route index element={<KMap />} />
         {/* <Route index element={<Post />} /> */}
         {/* <Route index element={<Signin />}></Route> */}
-        {/* </Route> */}
       </Routes>
     </>
   );
