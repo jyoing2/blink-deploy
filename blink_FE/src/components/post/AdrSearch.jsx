@@ -1,3 +1,4 @@
+//AdrSearch.jsx
 //글 업로드 페이지 - 왼쪽 상단 지역명, 도로명 주소를 입력하십시오.
 
 import React, { useState } from 'react';
@@ -38,14 +39,13 @@ export default function AddressSearch({ onUpdateAddress, showAdrSearch }) {
   };
 
   return (
-    <AdrSearchContainer>
+    <AdrSearchContainer show={showAdrSearch}>
       <DaumPostcode onComplete={handleComplete} />
-      
       {showAdrSearch && (
         <StyledSearchResult>
           <SearchResultInputs
             {...addressInfo}
-            handleDetailAddressChange={(e) => 
+            handleDetailAddressChange={(e) =>
               setAddressInfo({ ...addressInfo, detailAddress: e.target.value })
             }
           />
