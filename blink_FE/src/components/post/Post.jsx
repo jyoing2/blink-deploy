@@ -7,7 +7,6 @@ import { StyledSearchResult, SearchResultInputs } from "./SearchResult";
 import Calendartwo from "./DatePicker";
 import FileUpload from "./FileUpload";
 
-
 const AdrSearchContainer = styled.div`
   position: absolute;
   top: 480px;
@@ -115,6 +114,16 @@ const Thumbnail = styled.img`
 const ThumbnailsContainer = styled.div`
   display: flex;
   gap: 10px;
+`;
+
+const RegisterButton = styled.button`
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 `;
 
 export default function Post() {
@@ -238,6 +247,7 @@ export default function Post() {
           uploadedFiles={uploadedFiles} // Pass uploadedFiles to track selected files
         />
       </SquareBox2>
+        <RegisterButton>등록하기</RegisterButton>
       </PostContainer>
     </>
   );
