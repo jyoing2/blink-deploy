@@ -10,6 +10,7 @@ const NavContainer = styled.div`
   top: 0;
   width: 200px;
   height: 100%;
+  z-index: 10;
 `;
 
 const NavItem = styled.div`
