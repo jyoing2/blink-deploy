@@ -142,6 +142,11 @@ export default function Post() {
     setSelectedAddress(updatedAddressInfo.address); // Update selected address
   };
   
+  const handleFileUpload = (event) => {
+    const uploadedFile = event.target.files[0];
+    // Handle the uploaded file as needed
+    console.log("Uploaded file:", uploadedFile);
+  };
 
   return (
     <>
@@ -205,7 +210,10 @@ export default function Post() {
             </FormRow>
           </SquareBox>
         </Lsquare>
-        <SquareBox2>Omg</SquareBox2>
+        <SquareBox2>
+          파일 업로드
+          <input type="file" accept=".png, .jpg, .jpeg, .pdf" onChange={handleFileUpload} />
+        </SquareBox2>
       </PostContainer>
     </>
   );
