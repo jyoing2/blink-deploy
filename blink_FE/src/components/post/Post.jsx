@@ -107,8 +107,8 @@ const Search2 = styled(Search)`
 `;
 
 const Thumbnail = styled.img`
-  max-width: 300px;
-  max-height: 200px;
+  max-width: 250px;
+  max-height: 150px;
   object-fit: contain;
 `;
 
@@ -161,6 +161,11 @@ export default function Post() {
     }
 
     setUploadedFiles(files);
+  };
+  const handleRemoveThumbnail = (index) => {
+    const updatedFiles = [...uploadedFiles];
+    updatedFiles.splice(index, 1);
+    setUploadedFiles(updatedFiles);
   };
 
 
@@ -225,14 +230,14 @@ export default function Post() {
           </SquareBox>
         </Lsquare>
         <SquareBox2>
-          <FileUpload onFileUpload={handleFileUpload} maxFiles={2} />
-          {/* Display thumbnail previews for uploaded image files */}
-          <ThumbnailsContainer>
-            {uploadedFiles.map((file, index) => (
-              <Thumbnail key={index} src={URL.createObjectURL(file)} alt={`Thumbnail ${index + 1}`} />
-            ))}
-          </ThumbnailsContainer>
-        </SquareBox2>
+        <FileUpload
+          onFileUpload={handleFileUpload}
+          maxFiles={2}
+          ThumbnailComponent={Thumbnail} // Pass the Thumbnail component to FileUpload
+          handleRemoveThumbnail={handleRemoveThumbnail} // Pass the handleRemoveThumbnail function
+          uploadedFiles={uploadedFiles} // Pass uploadedFiles to track selected files
+        />
+      </SquareBox2>
       </PostContainer>
     </>
   );
