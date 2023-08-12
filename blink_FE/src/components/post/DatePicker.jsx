@@ -1,6 +1,5 @@
 //DatePicker.jsx
 
-
 import React, { useState } from "react";
 import styled from "styled-components";
 import Calendar from "react-calendar";
@@ -31,7 +30,7 @@ export default function Calendartwo({ user, onSelectDate }) {
     onChange(date);
     onSelectDate(date); // Call the onSelectDate prop with the selected date
   };
-  
+
   return (
     <Container>
       <Calendar
