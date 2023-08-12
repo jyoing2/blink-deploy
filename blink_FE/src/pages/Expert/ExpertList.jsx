@@ -23,7 +23,6 @@ const Range = styled.select`
 
 const Outline = styled.div`
   width: 96%;
-
   margin: 40px;
   display: flex;
   flex-wrap: wrap;
@@ -32,7 +31,7 @@ const Outline = styled.div`
 
 const Card = styled.div`
   width: 400px;
-  height: 400px;
+  height: 600px;
   border: 1px solid black;
   display: flex;
   flex-direction: column;
@@ -43,57 +42,115 @@ const Card = styled.div`
 `;
 
 const CardImage = styled.img`
-  width: 80%;
-  height: auto;
+  width: 350px;
+  height: 350px;
+  margin-top: 15px;
+  border-radius: 15px;
 `;
 
-const CardText = styled.p`
+const CardName = styled.p`
+  font-size: 29px;
+  margin-top: 20px;
+  margin-left: 10px;
+  position: relative;
+  right: 80px;
+`;
+
+const CardJob = styled.p`
+  font-size: 30px;
+  margin-top: 20px;
+  font-weight: 700;
+  position: relative;
+  right: 80px;
+`;
+
+const CardEx = styled.p`
   font-size: 16px;
   margin-top: 10px;
+  font-weight: 600;
 `;
+
+const Wrap = styled.div`
+  display: flex;
+`;
+
+const Wrapping = styled.div`
+  display: flex;
+  position: relative;
+  right: 45px;
+  margin-top: 15px;
+  font-size: 20px;
+`;
+
+// 경력문자열 엔터처리 함수
+const formatExperience = (experience) => {
+  const lines = experience.split(/\s(?=\d{4}~)/);
+  return lines.map((line, index) => (
+    <React.Fragment key={index}>
+      {index !== 0 && <br />}
+      {line}
+    </React.Fragment>
+  ));
+};
 
 // 변호사 데이터
 export default function ExpertList() {
   const cardData = [
     {
-      imageUrl: "image-url-2",
-      userId: "변호사 김12",
-      experience: "5년",
+      imageUrl: "img/lawyer5.jpg",
+      job: "변호사",
+      userId: "김지현",
+      experience:
+        "2023~ 멋쟁이 사자처럼 대학 입학 2023~ 피자스쿨 대학원 입학 2024~ 피자스쿨 마스터 예정",
     },
     {
-      imageUrl: "image-url-2",
-      userId: "변호사 김23",
-      experience: "3년",
+      imageUrl: "img/lawyer7.jpg",
+      job: "변호사",
+      userId: "박민준",
+      experience:
+        "2023~ 멋쟁이 사자처럼 대학 입학 2023~ 피자스쿨 대학원 입학 2024~ 피자스쿨 마스터 예정",
     },
     {
-      imageUrl: "image-url-2",
-      userId: "변호사 김34",
-      experience: "3년",
+      imageUrl: "img/lawyer8.jpg",
+      job: "변호사",
+      userId: "이서연",
+      experience:
+        "2023~ 멋쟁이 사자처럼 대학 입학 2023~ 피자스쿨 대학원 입학 2024~ 피자스쿨 마스터 예정",
     },
     {
-      imageUrl: "image-url-2",
-      userId: "변호사 김45",
-      experience: "3년",
+      imageUrl: "img/lawyer6.jpg",
+      job: "변호사",
+      userId: "최준호",
+      experience:
+        "2023~ 멋쟁이 사자처럼 대학 입학 2023~ 피자스쿨 대학원 입학 2024~ 피자스쿨 마스터 예정",
     },
     {
-      imageUrl: "image-url-2",
-      userId: "user456",
-      experience: "3년",
+      imageUrl: "img/lawyer9.jpg",
+      job: "변호사",
+      userId: "정유진",
+      experience:
+        "2023~ 멋쟁이 사자처럼 대학 입학 2023~ 피자스쿨 대학원 입학 2024~ 피자스쿨 마스터 예정",
     },
     {
-      imageUrl: "image-url-2",
-      userId: "user456",
-      experience: "3년",
+      imageUrl: "img/lawyer1.jpg",
+      job: "변호사",
+      userId: "강도현",
+      experience:
+        "2023~ 멋쟁이 사자처럼 대학 입학 2023~ 피자스쿨 대학원 입학 2024~ 피자스쿨 마스터 예정",
     },
     {
-      imageUrl: "image-url-2",
-      userId: "user456",
-      experience: "3년",
+      imageUrl: "img/lawyer2.png",
+      job: "변호사",
+      userId: "임아름",
+      experience:
+        "2023~ 멋쟁이 사자처럼 대학 입학 2023~ 피자스쿨 대학원 입학 2024~ 피자스쿨 마스터 예정",
     },
     {
-      imageUrl: "image-url-2",
-      userId: "user456",
-      experience: "3년",
+      imageUrl: "img/lawyer3.jpg",
+      job: "변호사",
+      userId: "한성민",
+      experience:
+        "2023~ 멋쟁이 사자처럼 대학 입학 2023~ 피자스쿨 대학원 입학 2024~ 피자스쿨 마스터 예정",
     },
   ];
 
@@ -110,11 +167,18 @@ export default function ExpertList() {
         {cardData.map((card, index) => (
           <Card key={index}>
             <CardImage src={card.imageUrl} alt="변호사 이미지" />
-            <CardText>
-              <p>변호사</p>
-              {card.userId}
-            </CardText>
-            <CardText>경력: {card.experience}</CardText>
+            <Wrap>
+              <CardJob>
+                {card.job} {card.userId}
+              </CardJob>
+            </Wrap>
+            <Wrapping>
+              <CardEx>
+                경력
+                <br />
+                {formatExperience(card.experience)}
+              </CardEx>
+            </Wrapping>
           </Card>
         ))}
       </Outline>
