@@ -33,10 +33,10 @@ function App() {
     <>
       <GlobalStyleComponent />
       <Routes>
-        {/* <Route path="/" element={<Layout />}> */}
-        {/* <Route index element={<Home />} /> */}
-        {/* <Route index element={<KMap />} /> */}
-        <Route index element={<Post />} />
+        <Route path="/" element={<Layout />} />
+        <Route index element={<Home />} />
+        <Route index element={<KMap />} />
+        {/* <Route index element={<Post />} /> */}
         {/* <Route index element={<Signin />}></Route> */}
         {/* </Route> */}
       </Routes>
