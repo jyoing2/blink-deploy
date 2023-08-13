@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const SigninForm = styled.div`
-  width: 60%;
+  width: 65vw;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -28,10 +28,8 @@ export const SigninWrapper = styled.div`
   position: relative;
   /* left: 100%; */
   align-items: center;
+  position: relative;
+  left: 22%;
 `;
 
-// export const SigninWhole = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// `;
+export const SignInInputWrapper = styled.div``;

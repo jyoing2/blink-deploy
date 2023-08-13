@@ -11,6 +11,7 @@ import KMap from "./components/post/KMap";
 import ExpertList from "./pages/Expert/ExpertList";
 import ExpertDetail from "./pages/Expert/ExpertDetail";
 import { CardData } from "./pages/Expert/ExpertData";
+import Nav from "./components/Layout/Nav";
 
 /* 추가적인 리셋이나 스타일 조정을 여기에 추가할 수 있습니다. */
 const GlobalStyleComponent = createGlobalStyle`
@@ -34,6 +35,7 @@ function App() {
   return (
     <>
       <GlobalStyleComponent />
+      <Nav />
       <Routes>
         {/* <Route index element={<KMap />} /> */}
         {/* <Route index element={<Post />} /> */}

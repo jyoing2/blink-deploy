@@ -18,7 +18,7 @@ export const LoginNavigateContent = styled.div`
 
 export const LoginNavigateContainer = styled.div`
   display: flex;
-  width: 200px;
+  width: 240px;
   height: 100%;
   flex-direction: column;
   background-color: #34446d;
@@ -35,4 +35,5 @@ export const LoginNavigateButton = styled.button`
   height: 3rem;
   display: flex;
   align-items: center;
+  justify-content: center;
 `;
