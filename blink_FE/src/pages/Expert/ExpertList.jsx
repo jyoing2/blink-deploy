@@ -38,14 +38,7 @@ export default function ExpertList() {
   return (
     <Upper>
       <Outlet />
-      <Container
-        style={{
-          width:
-            selectedCardData !== null
-              ? "calc(100vw - 420px)"
-              : "calc(100vw - 220px)",
-        }}
-      >
+      <Container selectedCardData={selectedCardData}>
         <Explain>당신에게 맞는 전문가를 찾아보세요!</Explain>
         <Range>
           <option value="latest">최신 순</option>

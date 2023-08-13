@@ -40,14 +40,13 @@ function App() {
       <Nav />
       <Routes>
         {/* <Route index element={<KMap />} /> */}
-        {/* <Route index element={<Post />} /> */}
-        <Route path="/" element={<Layout />} />
-        {/* <Route index element={<Home />} />
-        <Route index element={<KMap />} /> */}
+        {/* <Route index element={<Post />} />
+       <Route path="/" element={<Layout />} />
+        <Route index element={<Home />} />
+        <Route index element={<KMap />} />
         {/* <Route index element={<Post />} /> */}
         {/* <Route index element={<Signin />}></Route> */}
         {/* <Route index element={<Signup />}></Route> */}
-
         {/* #4 변호사 페이지 렌더링 코드 */}
         {/* <Route path="/expert" element={<ExpertList />}>
           <Route
@@ -55,8 +54,6 @@ function App() {
             element={<ExpertDetail CardData={CardData} />}
           />
         </Route> */}
-
-        {/* </Route> */}
       </Routes>
     </>
   );

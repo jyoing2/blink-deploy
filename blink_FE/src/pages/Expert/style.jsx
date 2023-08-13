@@ -6,8 +6,12 @@ export const Upper = styled.div`
 `;
 
 export const Container = styled.div`
-  background-color: aliceblue;
-  margin-left: ;
+  margin-left: ${(props) => (props.selectedCardData !== null ? "" : "200px")};
+  width: ${(props) =>
+    props.selectedCardData !== null
+      ? "calc(100vw - 720px)"
+      : "calc(100vw - 220px)"};
+  flex-wrap: wrap;
 `;
 
 export const Explain = styled.p`
@@ -25,11 +29,12 @@ export const Range = styled.select`
 `;
 
 export const Outline = styled.div`
-  width: 83vw;
   margin: 40px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+
+  width: ${(props) => (props.selectedCardData !== null ? "vw" : "83vw")};
 `;
 
 export const Card = styled.div`
