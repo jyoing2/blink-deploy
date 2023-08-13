@@ -20,19 +20,54 @@ class Question extends React.Component {
   }
 }
 
-const AdrSearchContainer = styled.div`
-  position: absolute;
-  top: 440px;
-  left: 30%;
-  padding: 20px;
+const Outer = styled.div`
+  height: 1080px;
+  width: 1150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: beige;
+  justify-content: center;
+`;
+
+const CheckDisplay = styled.div`
+  width: 1150px;
+  margin-left: 120px;
+  margin-bottom: 20px;
+  display: flex;
+`;
+
+const Check = styled.div`
+  height: 35px;
+  width: 164px;
   border: 2px solid black;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 24px;
+  margin-right: 20px;
+`;
+
+const Checkbox = styled.input`
+  width: 24px; // Set the width
+  height: 24px; // Set the height
+`;
+
+const AdrSearchContainer = styled.div`
+  position: fixed;
+  top: 320px;
+  left: 250px;
+  padding: 20px;
+  border: 1px solid black;
+  background-color: white;
   border-radius: 10px;
   display: ${(props) => (props.show ? "block" : "none")};
 `;
 
 const PostContainer = styled.div`
   width: 1030px;
-  height: 860px;
+  height: 806px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -71,7 +106,7 @@ const SquareBox = styled.div`
   border: 2px solid black;
   display: flex;
   flex-direction: column;
-  align-items:space-between;
+  align-items: space-between;
 `;
 
 const Display = styled.div`
@@ -81,8 +116,8 @@ const Display = styled.div`
 
 const SquareBox2 = styled(SquareBox)`
   height: 250px;
-  align-items:center;
-  justify-content:center;
+  align-items: center;
+  justify-content: center;
 `;
 
 const FormRow = styled.div`
@@ -98,7 +133,8 @@ const Select = styled.select`
   padding: 5px;
   border: 2px solid black;
   border-radius: 10px;
-  font-size:21px;
+  font-size: 21px;
+  text-align:center;
 `;
 
 const TitleInput = styled.input`
@@ -138,18 +174,19 @@ const Thumbnail = styled.img`
 
 const ThumbnailsContainer = styled.div`
   display: flex;
-  gap: 10px; 
+  gap: 10px;
 `;
 
 const RegisterButton = styled.button`
   margin-top: 20px;
   padding: 10px 20px;
-  background-color: #1B2130;
+  background-color: #1b2130;
   color: white;
   border-radius: 15px;
   cursor: pointer;
-  font-size:28px;
+  font-size: 28px;
   font-weight: 500;
+  box-shadow: 3px 3px 3px gray;
 `;
 
 export default function Post() {
@@ -205,7 +242,17 @@ export default function Post() {
   };
 
   return (
-    <>
+    <Outer>
+      <CheckDisplay>
+        <Check>
+          제보해요
+          <Checkbox type="checkbox" checked />
+        </Check>
+        <Check>
+          찾아요
+          <Checkbox type="checkbox" />
+        </Check>
+      </CheckDisplay>
       <PostContainer>
         <TopRow>
           <Search
@@ -231,6 +278,7 @@ export default function Post() {
             <AdrSearch
               onUpdateAddress={setAddressInfo}
               showAdrSearch={showAdrSearch}
+              setShowAdrSearch={setShowAdrSearch} // Pass the function here
             />
           ) : (
             showDatePicker && (
@@ -289,8 +337,8 @@ export default function Post() {
             uploadedFiles={uploadedFiles} // Pass uploadedFiles to track selected files
           />
         </SquareBox2>
-        <RegisterButton>등록하기</RegisterButton>
       </PostContainer>
-    </>
+      <RegisterButton>등록하기</RegisterButton>
+    </Outer>
   );
 }
