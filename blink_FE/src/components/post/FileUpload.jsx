@@ -1,15 +1,44 @@
-//FileUpload.jsx
-
 import React, { useState } from "react";
 import styled from "styled-components";
 
 const FileUploadContainer = styled.div`
   margin-top: 20px;
+  display:flex;
+  align-items:center;
+`;
+
+const FileInput = styled.input`
+  display: none;
+`;
+
+const SelectFileButton = styled.label`
+  display: inline-block;
+  width: 120px;
+  height: 20px;
+  padding: 10px 20px;
+  background-color: white;
+  color: rgba(83, 83, 255, 0.7); 
+  border: 2px solid blue;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  margin: 0 30px 0 80px;
+
+  &:hover {
+    background-color: rgba(83, 83, 255, 0.7); ;
+    color: white;
+  }
+`;
+
+const NoFileSelectedText = styled.span`
+  margin-left: 10px;
+  font-size: 14px;
+  color: blue;
 `;
 
 const ThumbnailsContainer = styled.div`
-  display: flex;
   gap: 10px;
+  display: flex;
 `;
 
 const ThumbnailWrapper = styled.div`
@@ -35,7 +64,10 @@ export default function FileUpload({
       return;
     }
 
-    const updatedFiles = [...selectedFiles, ...Array.from(files).slice(0, maxFiles - selectedFiles.length)];
+    const updatedFiles = [
+      ...selectedFiles,
+      ...Array.from(files).slice(0, maxFiles - selectedFiles.length),
+    ];
     setSelectedFiles(updatedFiles);
     onFileUpload(updatedFiles);
   };
@@ -46,16 +78,26 @@ export default function FileUpload({
     onFileUpload(updatedFiles);
   };
 
-
   return (
     <FileUploadContainer>
-      <input type="file" accept=".png, .jpg, .jpeg, .pdf" multiple onChange={handleFileChange} />
-      {/* Display the list of selected files */}
+      <FileInput
+        id="fileInput"
+        type="file"
+        accept=".png, .jpg, .jpeg, .pdf"
+        multiple
+        onChange={handleFileChange}
+      />
+      <SelectFileButton htmlFor="fileInput">
+      이미지 첨부하기
+      </SelectFileButton>
       <ThumbnailsContainer>
         {selectedFiles.map((file, index) => (
           <ThumbnailWrapper key={index}>
-          <ThumbnailComponent src={URL.createObjectURL(file)} alt={`Thumbnail ${index + 1}`} />
-          <button onClick={() => handleRemoveFile(index)}>Remove</button>
+            <ThumbnailComponent
+              src={URL.createObjectURL(file)}
+              alt={`Thumbnail ${index + 1}`}
+            />
+            <button onClick={() => handleRemoveFile(index)}>파일 삭제</button>
           </ThumbnailWrapper>
         ))}
       </ThumbnailsContainer>
