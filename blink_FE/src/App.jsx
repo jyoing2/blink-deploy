@@ -48,12 +48,12 @@ function App() {
         {/* <Route index element={<Signin />}></Route> */}
         {/* <Route index element={<Signup />}></Route> */}
         {/* #4 변호사 페이지 렌더링 코드 */}
-        {/* <Route path="/expert" element={<ExpertList />}>
+        <Route path="/expert" element={<ExpertList />}>
           <Route
             path="detail/:Id"
             element={<ExpertDetail CardData={CardData} />}
           />
-        </Route> */}
+        </Route>
       </Routes>
     </>
   );

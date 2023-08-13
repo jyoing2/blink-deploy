@@ -86,6 +86,7 @@ export const Wrapping = styled.div`
 //ExpertDetail.jsx
 export const Box = styled.div`
   width: 460px;
+  height: fit-content;
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
   margin-left: 200px;
