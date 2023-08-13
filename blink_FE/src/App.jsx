@@ -12,6 +12,7 @@ import ExpertList from "./pages/Expert/ExpertList";
 import ExpertDetail from "./pages/Expert/ExpertDetail";
 import { CardData } from "./pages/Expert/ExpertData";
 import Nav from "./components/Layout/Nav";
+import Signup from "./pages/Signup/signup";
 import { Outlet } from "react-router-dom";
 
 /* 추가적인 리셋이나 스타일 조정을 여기에 추가할 수 있습니다. */
@@ -45,6 +46,7 @@ function App() {
         <Route index element={<KMap />} /> */}
         {/* <Route index element={<Post />} /> */}
         {/* <Route index element={<Signin />}></Route> */}
+        {/* <Route index element={<Signup />}></Route> */}
 
         {/* #4 변호사 페이지 렌더링 코드 */}
         {/* <Route path="/expert" element={<ExpertList />}>
