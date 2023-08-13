@@ -30,6 +30,7 @@ function CustomGMap() {
   const [predictions, setPredictions] = useState([]);
   const [selectedPlace, setSelectedPlace] = useState(null); // 선택된 장소 정보 추가
   const [clickedLocation, setClickedLocation] = useState(null); // 클릭한 위치 정보 추가
+  const [markers, setMarkers] = useState([]); // 마커 배열 추가
 
   const containerStyle = {
     width: "100%",
@@ -73,6 +74,15 @@ function CustomGMap() {
     newMap.addListener("click", (event) => {
       const clickedLatLng = event.latLng.toJSON();
       setClickedLocation(clickedLatLng);
+
+      // 마커 추가
+      clearMarkers();
+      const marker = new window.google.maps.Marker({
+        position: clickedLatLng,
+        map: newMap,
+        title: "선택한 위치",
+      });
+      setMarkers([marker]);
     });
 
     setMap(newMap);
@@ -157,6 +167,22 @@ function CustomGMap() {
   const mapviewMarkerClickHandler = (e) => {
     // Handle marker click event
   };
+
+  // const handleMapClick = (event) => {
+  //   const clickedLatLng = event.latLng.toJSON();
+  //   setClickedLocation(clickedLatLng);
+
+  //   // 기존 마커 제거
+  //   clearMarkers();
+
+  //   // 새 마커 추가
+  //   const newMarker = new window.google.maps.Marker({
+  //     position: clickedLatLng,
+  //     map: map,
+  //     title: "선택한 위치",
+  //   });
+  //   setMarkers([newMarker]);
+  // };
 
   return (
     <>
