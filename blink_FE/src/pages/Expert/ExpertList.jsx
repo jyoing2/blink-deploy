@@ -24,7 +24,7 @@ const formatExperience = (experience) => {
   ));
 };
 
-// 변호사 데이터
+// 변호사 리스트업 컴포넌트
 export default function ExpertList() {
   return (
     <Container>
