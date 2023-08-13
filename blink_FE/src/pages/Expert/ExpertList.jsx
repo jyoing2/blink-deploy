@@ -29,10 +29,14 @@ const formatExperience = (experience) => {
 
 // 변호사 리스트업 컴포넌트
 export default function ExpertList() {
-  const [selectedCardData, setSelectedCardData] = useState(null);
+  const [selectedCardData, setSelectedCardData] = useState(() => {
+    const storedCardData = localStorage.getItem("selectedCardData");
+    return storedCardData ? JSON.parse(storedCardData) : null;
+  });
 
   const handleCardClick = (card) => {
     setSelectedCardData(card);
+    localStorage.setItem("selectedCardData", JSON.stringify(card));
   };
 
   return (
