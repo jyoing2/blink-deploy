@@ -35,16 +35,23 @@ function App() {
     <>
       <GlobalStyleComponent />
       <Routes>
-        <Route path="/" element={<Layout />}>
+        {/* <Route index element={<KMap />} /> */}
+        {/* <Route index element={<Post />} /> */}
+        <Route path="/" element={<Layout />} />
+        {/* <Route index element={<Home />} />
+        <Route index element={<KMap />} /> */}
+        <Route index element={<Post />} />
+        {/* <Route index element={<Signin />}></Route> */}
+
+        {/* #4 변호사 페이지 렌더링 코드 */}
+        {/* <Route path="/" element={<Layout />}>
           <Route path="/expert" element={<ExpertList />} />
           <Route
             path="/expert/detail/:Id"
             element={<ExpertDetail CardData={CardData} />}
           />
-        </Route>
-        {/* <Route index element={<KMap />} /> */}
-        {/* <Route index element={<Post />} /> */}
-        {/* <Route index element={<Signin />}></Route> */}
+        </Route> */}
+
         {/* </Route> */}
       </Routes>
     </>
