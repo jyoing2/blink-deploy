@@ -6,13 +6,13 @@ import reset from "styled-reset";
 import Home from "./pages/home/Home";
 import { Layout } from "./components/Layout/Layout";
 import Post from "./components/post/Post";
-import Signin from "./pages/Login/signin";
+import Signin from "./pages/Auth/Login/signin";
 import KMap from "./components/post/KMap";
 import ExpertList from "./pages/Expert/ExpertList";
 import ExpertDetail from "./pages/Expert/ExpertDetail";
 import { CardData } from "./pages/Expert/ExpertData";
 import Nav from "./components/Layout/Nav";
-import Signup from "./pages/Signup/signup";
+import Signup from "./pages/Auth/Signup/signup";
 import { Outlet } from "react-router-dom";
 import ExpertSignup from "./pages/Auth/Signup/ExpertSignup";
 
