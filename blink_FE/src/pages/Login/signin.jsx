@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import {
-  IdFormComponent,
+  LoginInputComponent,
   LoginButton,
-  PwFormComponent,
 } from "../../components/Login/LoginForm/LoginForm";
 import { SigninForm, SocialLogin, SigninWrapper } from "./style";
 import { LoginTitleComponent } from "../../components/Login/LoginForm/LoginTitle";
@@ -16,6 +15,8 @@ import NaverIcon from "../../assets/images/naver.png";
 
 import { Line } from "../../components/Login/LoginLine/Line";
 
+import * as S from "./style";
+
 //style import
 
 function Signin() {
@@ -23,6 +24,9 @@ function Signin() {
     id: "",
     pw: "",
   });
+
+  //유효성 검증 위함
+  const [isValid, setIsValid] = useState(false);
 
   const handleInputChange = (event) => {
     const { id, value } = event.target;
@@ -32,7 +36,37 @@ function Signin() {
     }));
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("loginData.id:", loginData.id);
+    console.log("loginData.pw:", loginData.pw);
+
+    e.preventDefault();
+    // 모든 필수 칸이 입력되었는지 확인
+    if (loginData.id && loginData.pw) {
+      // use try catch to handle errors for POST request user Info
+      try {
+        // axios.post("/accounts/signup", user);
+        alert("로그인이 완료되었습니다.");
+        navigate("/");
+      } catch (error) {
+        alert("로그인에 실패했습니다.");
+      }
+    } else {
+      alert("모든 칸을 입력해주세요 :)");
+    }
+  };
+
   const handleLoginClick = () => {
+    if (loginData.id === "") {
+      alert("아이디를 입력해주세요.");
+      return;
+    }
+
+    if (loginData.pw === "") {
+      alert("비밀번호를 입력해주세요.");
+      return;
+    }
     // 여기에 로그인 처리 로직을 작성합니다.
     console.log("로그인 버튼이 클릭되었습니다.");
     console.log("아이디:", loginData.id);
@@ -48,23 +82,37 @@ function Signin() {
         handleLoginClick={handleLoginClick}
         buttonText="Sign up"
       />
-      <SigninForm>
+      <SigninForm onSubmit={handleSubmit}>
         <LoginTitleComponent LogintitleText="Login to Blink!" />
-        <IdFormComponent
-          handleInputChange={handleInputChange}
-          loginData={loginData}
-          idPlaceholder="아이디를 입력하세요"
-          // handleLoginClick={handleLoginClick}
-        />
+        <S.SignInInputWrapper>
+          <LoginInputComponent
+            required
+            type="email"
+            onChange={handleInputChange}
+            placeholder="이메일을 입력하세요"
+            isvaild="true"
+            value={loginData.id}
+            name="id"
+          />
+        </S.SignInInputWrapper>
 
-        <PwFormComponent
-          handleInputChange={handleInputChange}
-          loginData={loginData}
-          pwPlaceholder="비밀번호를 입력하세요"
-          // handleLoginClick={handleLoginClick}
-        />
+        <S.SignInInputWrapper>
+          <LoginInputComponent
+            type="password"
+            onChange={handleInputChange}
+            placeholder="비밀번호를 입력하세요"
+            isvaild="true"
+            value={loginData.pw}
+            name="pw"
+            handleLoginClick={handleLoginClick}
+          />
+        </S.SignInInputWrapper>
 
-        <LoginButton handleLoginClick={handleLoginClick} buttonText="로그인" />
+        <LoginButton
+          type="submit"
+          onClick={handleLoginClick}
+          buttonText="로그인"
+        />
 
         <Line text="or" />
         {/* 소셜로그인 버튼 */}

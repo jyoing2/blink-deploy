@@ -10,15 +10,13 @@ export function LoginNavigates({
   LoginNavigatetitle,
   LoginNavigatecotent,
   buttonText,
-  handleLoginClick,
+  onClick,
 }) {
   return (
     <LoginNavigateContainer>
       <LoginNavigateTitle>{LoginNavigatetitle}</LoginNavigateTitle>
       <LoginNavigateContent>{LoginNavigatecotent}</LoginNavigateContent>
-      <LoginNavigateButton onClick={handleLoginClick}>
-        {buttonText}
-      </LoginNavigateButton>
+      <LoginNavigateButton onClick={onClick}>{buttonText}</LoginNavigateButton>
     </LoginNavigateContainer>
   );
 }
