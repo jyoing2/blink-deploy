@@ -47,20 +47,4 @@ export const CardData = [
     experience:
       "2023~ 멋쟁이 사자처럼 대학 입학 2023~ 피자스쿨 대학원 입학 2024~ 피자스쿨 마스터 예정",
   },
-  {
-    Id: 7,
-    imageUrl: "img/lawyer2.png",
-    job: "변호사",
-    userId: "임아름",
-    experience:
-      "2023~ 멋쟁이 사자처럼 대학 입학 2023~ 피자스쿨 대학원 입학 2024~ 피자스쿨 마스터 예정",
-  },
-  {
-    Id: 8,
-    imageUrl: "img/lawyer3.jpg",
-    job: "변호사",
-    userId: "한성민",
-    experience:
-      "2023~ 멋쟁이 사자처럼 대학 입학 2023~ 피자스쿨 대학원 입학 2024~ 피자스쿨 마스터 예정",
-  },
 ];
