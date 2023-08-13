@@ -11,7 +11,9 @@ import {
   Wrap,
   Wrapping,
 } from "./style";
+import { useEffect, useState } from "react";
 import { CardData } from "../Expert/ExpertData";
+import { Link } from "react-router-dom";
 
 // 경력 설명 부분 문자열 엔터처리 함수
 const formatExperience = (experience) => {
@@ -26,6 +28,12 @@ const formatExperience = (experience) => {
 
 // 변호사 리스트업 컴포넌트
 export default function ExpertList() {
+  const [selectedCardData, setSelectedCardData] = useState(null);
+
+  const handleCardClick = (card) => {
+    setSelectedCardData(card);
+  };
+
   return (
     <Container>
       <Explain>당신에게 맞는 전문가를 찾아보세요!</Explain>
@@ -37,21 +45,23 @@ export default function ExpertList() {
       <button type="button">내 스크랩</button>
       <Outline>
         {CardData.map((card, index) => (
-          <Card key={index}>
-            <CardImage src={card.imageUrl} alt="변호사 이미지" />
-            <Wrap>
-              <CardJob>
-                {card.job} {card.userId}
-              </CardJob>
-            </Wrap>
-            <Wrapping>
-              <CardEx>
-                경력
-                <br />
-                {formatExperience(card.experience)}
-              </CardEx>
-            </Wrapping>
-          </Card>
+          <Link key={index} to={`/expert/detail/${card.Id}`}>
+            <Card onClick={() => handleCardClick(card)}>
+              <CardImage src={card.imageUrl} alt="변호사 이미지" />
+              <Wrap>
+                <CardJob>
+                  {card.job} {card.userId}
+                </CardJob>
+              </Wrap>
+              <Wrapping>
+                <CardEx>
+                  경력
+                  <br />
+                  {formatExperience(card.experience)}
+                </CardEx>
+              </Wrapping>
+            </Card>
+          </Link>
         ))}
       </Outline>
     </Container>
