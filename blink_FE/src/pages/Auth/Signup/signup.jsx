@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./style";
-import { useNavigate } from "react-router-dom";
-import { LoginNavigates } from "../../components/Login/LoginNavigateBar/LoginNavigates";
-import { LoginTitleComponent } from "../../components/Login/LoginForm/LoginTitle";
-import { SocialLoginButton } from "../../components/Login/SocialLogin/socialLogins";
+import { Link, useNavigate } from "react-router-dom";
+import { LoginNavigates } from "../../../components/Login/LoginNavigateBar/LoginNavigates";
+import { LoginTitleComponent } from "../../../components/Login/LoginForm/LoginTitle";
+import { SocialLoginButton } from "../../../components/Login/SocialLogin/socialLogins";
 import {
   LoginInputComponent,
   LoginButton,
-} from "../../components/Login/LoginForm/LoginForm";
+} from "../../../components/Login/LoginForm/LoginForm";
+
+// import ExpertSignup from "../Signup/ExpertSignup";
 
 //image import
-import GoogleIcon from "../../assets/images/google.png";
-import KakaoIcon from "../../assets/images/kakao.png";
-import NaverIcon from "../../assets/images/naver.png";
+import GoogleIcon from "../../../assets/images/google.png";
+import KakaoIcon from "../../../assets/images/kakao.png";
+import NaverIcon from "../../..//assets/images/naver.png";
 
-import { Line } from "../../components/Login/LoginLine/Line";
+import { Line } from "../../../components/Login/LoginLine/Line";
 
 function Signup() {
   const [user, setUser] = useState({
@@ -190,6 +192,16 @@ function Signup() {
             color="white"
           />
         </S.SocialLogin>
+        <S.ExpertPageMove>
+          <S.Expertint>
+            변호사, 손해사정사 등 전문가이신가요?
+            <br />
+            전문가 회원으로 전용 기능을 누려보세요!
+          </S.Expertint>
+          <S.Expertclick>
+            <Link to="/expertsignup">전문가 가입 ></Link>
+          </S.Expertclick>
+        </S.ExpertPageMove>
       </S.SignUpInputContainer>
       <LoginNavigates
         LoginNavigatetitle="안녕하세요! Blink입니다!"

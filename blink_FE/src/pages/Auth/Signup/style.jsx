@@ -56,3 +56,31 @@ export const SocialLogin = styled.div`
   width: 100%;
   justify-content: center;
 `;
+
+//expersignup으로 이동
+export const ExpertPageMove = styled.div``;
+export const Expertint = styled.div`
+  margin-top: 10%;
+  text-align: center;
+  line-height: 1.2rem;
+`;
+export const Expertclick = styled.div`
+  text-align: center;
+  margin-top: 1rem;
+  font-size: large;
+  font-weight: bolder;
+  color: black;
+`;
+
+export const UnderlinedText = styled.span`
+  text-decoration: underline;
+`;
+
+export const HowSignup = styled.div``;
+
+export const HowSignuptext = styled.div``;
+
+export const select = styled.div`
+  background-color: #d9d9d9;
+  opacity: 30%;
+`;
