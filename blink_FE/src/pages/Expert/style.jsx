@@ -1,9 +1,13 @@
 import styled from "styled-components";
 
+//expertList.jsx
+export const Upper = styled.div`
+  display: flex;
+`;
+
 export const Container = styled.div`
-  width: 89%;
-  height: 884px;
-  margin-left: 200px;
+  background-color: aliceblue;
+  margin-left: ;
 `;
 
 export const Explain = styled.p`
@@ -21,7 +25,7 @@ export const Range = styled.select`
 `;
 
 export const Outline = styled.div`
-  width: 96%;
+  width: 83vw;
   margin: 40px;
   display: flex;
   flex-wrap: wrap;
@@ -38,6 +42,7 @@ export const Card = styled.div`
   margin-bottom: 20px;
   border-radius: 10px;
   background-color: #d9d9d9;
+  color: black;
 `;
 
 export const CardImage = styled.img`
@@ -73,6 +78,7 @@ export const Wrapping = styled.div`
   font-size: 20px;
 `;
 
+//ExpertDetail.jsx
 export const Box = styled.div`
   width: 460px;
   border-top-right-radius: 25px;
