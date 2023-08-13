@@ -2,18 +2,18 @@ import React, { useState } from "react";
 import {
   LoginInputComponent,
   LoginButton,
-} from "../../components/Login/LoginForm/LoginForm";
+} from "../../../components/Login/LoginForm/LoginForm";
 import { SigninForm, SocialLogin, SigninWrapper } from "./style";
-import { LoginTitleComponent } from "../../components/Login/LoginForm/LoginTitle";
-import { SocialLoginButton } from "../../components/Login/SocialLogin/socialLogins";
-import { LoginNavigates } from "../../components/Login/LoginNavigateBar/LoginNavigates";
+import { LoginTitleComponent } from "../../../components/Login/LoginForm/LoginTitle";
+import { SocialLoginButton } from "../../../components/Login/SocialLogin/socialLogins";
+import { LoginNavigates } from "../../../components/Login/LoginNavigateBar/LoginNavigates";
 
 //image import
-import GoogleIcon from "../../assets/images/google.png";
-import KakaoIcon from "../../assets/images/kakao.png";
-import NaverIcon from "../../assets/images/naver.png";
+import GoogleIcon from "../../../assets/images/google.png";
+import KakaoIcon from "../../../assets/images/kakao.png";
+import NaverIcon from "../../..//assets/images/naver.png";
 
-import { Line } from "../../components/Login/LoginLine/Line";
+import { Line } from "../../../components/Login/LoginLine/Line";
 
 import * as S from "./style";
 
