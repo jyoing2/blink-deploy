@@ -6,9 +6,10 @@ const AdrSearchContainer = styled.div`
   position: absolute;
   transform: translate(-50%, -28%);
   background-color: white;
-  padding: 20px;
+  padding: 45px 20px 20px 20px;
   border: 2px solid black;
   border-radius: 10px;
+  width:310px;
 `;
 
 
@@ -50,7 +51,7 @@ export default function AddressSearch({ onUpdateAddress, showAdrSearch, setShowA
 
   return (
     <AdrSearchContainer show={showAdrSearch}>
-      <CloseButton onClick={handleClose}>Close</CloseButton>
+      <CloseButton onClick={handleClose}>X</CloseButton>
       <DaumPostcode onComplete={handleComplete} />
     </AdrSearchContainer>
   );

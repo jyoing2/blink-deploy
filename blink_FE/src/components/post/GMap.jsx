@@ -6,10 +6,9 @@ import CustomGMap from "./CustomGMap";
 
 export default function GMap() {
   return (
-    <Wrapper
-      apiKey={"AIzaSyCjXg90oMZF6DW0GoDdlFmOwtRFGGYY6DI"}
-      libraries={"places"}
-    >
+    <Wrapper>
+      {/* apiKey={"AIzaSyCjXg90oMZF6DW0GoDdlFmOwtRFGGYY6DI"}
+      libraries={"places"} */}
       <CustomGMap />
     </Wrapper>
   );

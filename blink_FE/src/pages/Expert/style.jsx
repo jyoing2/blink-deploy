@@ -1,9 +1,17 @@
 import styled from "styled-components";
 
+//expertList.jsx
+export const Upper = styled.div`
+  display: flex;
+`;
+
 export const Container = styled.div`
-  width: 89%;
-  height: 884px;
-  margin-left: 200px;
+  margin-left: ${(props) => (props.selectedCardData !== null ? "" : "200px")};
+  width: ${(props) =>
+    props.selectedCardData !== null
+      ? "calc(100vw - 720px)"
+      : "calc(100vw - 220px)"};
+  flex-wrap: wrap;
 `;
 
 export const Explain = styled.p`
@@ -21,11 +29,12 @@ export const Range = styled.select`
 `;
 
 export const Outline = styled.div`
-  width: 96%;
   margin: 40px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+
+  width: ${(props) => (props.selectedCardData !== null ? "vw" : "83vw")};
 `;
 
 export const Card = styled.div`
@@ -38,6 +47,7 @@ export const Card = styled.div`
   margin-bottom: 20px;
   border-radius: 10px;
   background-color: #d9d9d9;
+  color: black;
 `;
 
 export const CardImage = styled.img`
@@ -73,8 +83,10 @@ export const Wrapping = styled.div`
   font-size: 20px;
 `;
 
+//ExpertDetail.jsx
 export const Box = styled.div`
   width: 460px;
+  height: fit-content;
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
   margin-left: 200px;

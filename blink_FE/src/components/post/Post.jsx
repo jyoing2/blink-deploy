@@ -7,7 +7,9 @@ import { StyledSearchResult, SearchResultInputs } from "./SearchResult";
 import Calendartwo from "./DatePicker";
 import FileUpload from "./FileUpload";
 import { BiSearchAlt2 } from "react-icons/bi";
+import { AiOutlineCloudUpload } from "react-icons/ai";
 import HorizonLine from "./Line";
+
 
 class Question extends React.Component {
   render() {
@@ -26,7 +28,6 @@ const Outer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: beige;
   justify-content: center;
 `;
 
@@ -44,7 +45,7 @@ const Check = styled.div`
   border-radius: 10px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   font-size: 24px;
   margin-right: 20px;
 `;
@@ -117,7 +118,9 @@ const Display = styled.div`
 const SquareBox2 = styled(SquareBox)`
   height: 250px;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  display: flex;
+  flex-direction: row;
 `;
 
 const FormRow = styled.div`
@@ -134,7 +137,13 @@ const Select = styled.select`
   border: 2px solid black;
   border-radius: 10px;
   font-size: 21px;
-  text-align:center;
+  text-align: center;
+`;
+
+const Option = styled.option`
+  background-color: gray; /* Set background color */
+  color: white; /* Set text color */
+  height: 40px; /* Set height */
 `;
 
 const TitleInput = styled.input`
@@ -166,6 +175,7 @@ const TextArea = styled.textarea`
   font-size: 27px;
 `;
 
+
 const Thumbnail = styled.img`
   max-width: 250px;
   max-height: 150px;
@@ -175,6 +185,15 @@ const Thumbnail = styled.img`
 const ThumbnailsContainer = styled.div`
   display: flex;
   gap: 10px;
+`;
+
+const CustomCloudUploadIcon = styled(AiOutlineCloudUpload)`
+  font-size: 40px;
+  margin-left:40px;
+`;
+
+const UploadText = styled.div`
+  margin: -40px; /* Adjust the margin as needed */
 `;
 
 const RegisterButton = styled.button`
@@ -241,16 +260,29 @@ export default function Post() {
     setUploadedFiles(updatedFiles);
   };
 
+  const [isReportChecked, setIsReportChecked] = useState(true);
+  const [isLookForChecked, setIsLookForChecked] = useState(false);
+  
+  const handleReportCheckboxChange = () => {
+    setIsReportChecked(!isReportChecked);
+    setIsLookForChecked(false);
+  };
+
+  const handleLookForCheckboxChange = () => {
+    setIsLookForChecked(!isLookForChecked);
+    setIsReportChecked(false);
+  };
+
   return (
     <Outer>
       <CheckDisplay>
-        <Check>
-          제보해요
-          <Checkbox type="checkbox" checked />
+        <Check onClick={handleReportCheckboxChange}>
+          제보해요 &nbsp;
+          <Checkbox type="checkbox" checked={isReportChecked} />
         </Check>
-        <Check>
-          찾아요
-          <Checkbox type="checkbox" />
+        <Check onClick={handleLookForCheckboxChange}>
+          찾아요 &nbsp;&nbsp;
+          <Checkbox type="checkbox" checked={isLookForChecked} />
         </Check>
       </CheckDisplay>
       <PostContainer>
@@ -314,10 +346,10 @@ export default function Post() {
                   <option value="" disabled selected hidden>
                     카테고리
                   </option>
-                  <option value="Traffic Accident">교통사고</option>
-                  <option value="Theft">도난, 절도</option>
-                  <option value="Report Missing">실종 신고</option>
-                  <option value="Other">기타</option>
+                  <Option value="Traffic Accident">교통사고</Option>
+                  <Option value="Theft">도난, 절도</Option>
+                  <Option value="Report Missing">실종 신고</Option>
+                  <Option value="Other">기타</Option>
                 </Select>
               </FormRow>
             </Display>
@@ -329,13 +361,26 @@ export default function Post() {
         </Lsquare>
 
         <SquareBox2>
+          {uploadedFiles.length === 0 && (
+            <>
+              <CustomCloudUploadIcon />
+              <UploadText>
+                Only .png, .jpg, .jpeg, .pdf types of files can be uploaded.
+                <br />
+                <br />
+                You can upload up to 2 pages.
+              </UploadText>
+            </>
+          )}
+          {/* Display the FileUpload component */}
           <FileUpload
             onFileUpload={handleFileUpload}
             maxFiles={2}
-            ThumbnailComponent={Thumbnail} // Pass the Thumbnail component to FileUpload
-            handleRemoveThumbnail={handleRemoveThumbnail} // Pass the handleRemoveThumbnail function
-            uploadedFiles={uploadedFiles} // Pass uploadedFiles to track selected files
+            ThumbnailComponent={Thumbnail}
+            handleRemoveThumbnail={handleRemoveThumbnail}
+            uploadedFiles={uploadedFiles}
           />
+          <br />
         </SquareBox2>
       </PostContainer>
       <RegisterButton>등록하기</RegisterButton>
