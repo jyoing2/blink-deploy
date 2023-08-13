@@ -1,22 +1,24 @@
 import React from "react";
-import {
-  LoginNavigateTitle,
-  LoginNavigateContainer,
-  LoginNavigateContent,
-  LoginNavigateButton,
-} from "./style";
+import * as S from "./style";
 
 export function LoginNavigates({
   LoginNavigatetitle,
   LoginNavigatecotent,
   buttonText,
   onClick,
+  width,
+  position,
+  top,
 }) {
   return (
-    <LoginNavigateContainer>
-      <LoginNavigateTitle>{LoginNavigatetitle}</LoginNavigateTitle>
-      <LoginNavigateContent>{LoginNavigatecotent}</LoginNavigateContent>
-      <LoginNavigateButton onClick={onClick}>{buttonText}</LoginNavigateButton>
-    </LoginNavigateContainer>
+    <S.LoginNavigateContainer width={width}>
+      <S.LoginNavigateText position={position} top={top}>
+        <S.LoginNavigateTitle>{LoginNavigatetitle}</S.LoginNavigateTitle>
+        <S.LoginNavigateContent>{LoginNavigatecotent}</S.LoginNavigateContent>
+      </S.LoginNavigateText>
+      <S.LoginNavigateButton onClick={onClick}>
+        {buttonText}
+      </S.LoginNavigateButton>
+    </S.LoginNavigateContainer>
   );
 }

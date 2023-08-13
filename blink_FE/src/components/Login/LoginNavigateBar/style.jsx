@@ -18,7 +18,8 @@ export const LoginNavigateContent = styled.div`
 
 export const LoginNavigateContainer = styled.div`
   display: flex;
-  width: 240px;
+  width: ${(props) =>
+    props.width || "260px"}; // props.width 값이 없을 때 기본값 "240px" 사용
   height: 100%;
   flex-direction: column;
   background-color: #34446d;
@@ -36,4 +37,9 @@ export const LoginNavigateButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+`;
+
+export const LoginNavigateText = styled.div`
+  position: ${(props) => props.position || "relative"};
+  ${(props) => props.top && `top: ${props.top};`}
 `;
