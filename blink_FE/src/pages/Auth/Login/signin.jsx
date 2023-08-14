@@ -24,6 +24,12 @@ function Signin() {
   //유효성 검증 위함
   const [isValid, setIsValid] = useState(false);
 
+  const isValidEmail = (email) => {
+    // 정규 표현식을 사용하여 이메일 형식 검사
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    return emailPattern.test(email);
+  };
+
   const handleInputChange = (event) => {
     const { id, value } = event.target;
     setLoginData((prevData) => ({
@@ -40,9 +46,14 @@ function Signin() {
     e.preventDefault();
     // 모든 필수 칸이 입력되었는지 확인
     if (loginData.id && loginData.pw) {
+      if (!isValidEmail(loginData.id)) {
+        alert("올바른 이메일 형식을 입력해주세요.");
+        return;
+      }
+
       // use try catch to handle errors for POST request user Info
       try {
-        // axios.post("/accounts/signup", user);
+        // axios.post("/accounts/signin", user);
         alert("로그인이 완료되었습니다.");
         navigate("/");
       } catch (error) {
@@ -69,6 +80,12 @@ function Signin() {
       alert("비밀번호를 입력해주세요.");
       return;
     }
+
+    if (!isValidEmail(loginData.id)) {
+      alert("올바른 이메일 형식을 입력해주세요.");
+      return;
+    }
+
     // 여기에 로그인 처리 로직을 작성합니다.
     console.log("로그인 버튼이 클릭되었습니다.");
     console.log("아이디:", loginData.id);
