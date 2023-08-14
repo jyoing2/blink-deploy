@@ -76,11 +76,29 @@ export const UnderlinedText = styled.span`
   text-decoration: underline;
 `;
 
-export const HowSignup = styled.div``;
+export const HowSignup = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 5%;
+`;
 
-export const HowSignuptext = styled.div``;
+export const HowSignuptext = styled.div`
+  margin-right: 30px;
+`;
 
-export const select = styled.div`
-  background-color: #d9d9d9;
-  opacity: 30%;
+export const select = styled.select`
+  background-color: #f5f5f5;
+  border: none;
+  padding: 3px;
+  width: 230px;
+  height: 30px;
+`;
+
+export const LoginWhole = styled.div`
+  height: 100%;
+`;
+
+export const FontAwesomeIcon = styled.div`
+  width: 50px;
+  height: 50px;
 `;

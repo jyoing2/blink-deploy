@@ -1,5 +1,7 @@
 import React from "react";
 import * as S from "./style";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 
 export function LoginNavigates({
   LoginNavigatetitle,
@@ -9,16 +11,33 @@ export function LoginNavigates({
   width,
   position,
   top,
+  showIcon = false,
+  display,
+  flexDirection,
+  marginTop,
+  Top,
+  showButton = true,
+  showEmail = false,
 }) {
   return (
     <S.LoginNavigateContainer width={width}>
       <S.LoginNavigateText position={position} top={top}>
-        <S.LoginNavigateTitle>{LoginNavigatetitle}</S.LoginNavigateTitle>
+        <S.LoginNavigateTitle
+          display={display}
+          flexDirection={flexDirection}
+          Top={Top}
+        >
+          {showIcon && <FontAwesomeIcon icon={faCircleInfo} />}{" "}
+          <S.LNT marginTop={marginTop}>{LoginNavigatetitle}</S.LNT>
+        </S.LoginNavigateTitle>
         <S.LoginNavigateContent>{LoginNavigatecotent}</S.LoginNavigateContent>
       </S.LoginNavigateText>
-      <S.LoginNavigateButton onClick={onClick}>
-        {buttonText}
-      </S.LoginNavigateButton>
+      {showButton && ( // showButton 값에 따라 버튼을 표시하거나 생략
+        <S.LoginNavigateButton onClick={onClick}>
+          {buttonText}
+        </S.LoginNavigateButton>
+      )}
+      {showEmail && <S.email>@babylikelion@likelion.ac.kr</S.email>}
     </S.LoginNavigateContainer>
   );
 }
