@@ -1,8 +1,8 @@
 // Import necessary libraries
-import React from "react";
 import styled from "styled-components";
-// import { MdLocationOn } from "react-icons/md";
-import HorizonLine from "./Line";
+import { MdLocationOn } from "react-icons/md";
+import HorizonLine from "./Line.jsx";
+import React, { useState } from "react";
 
 // Define a styled component
 
@@ -55,12 +55,13 @@ const PostBox = styled.div`
   font-size: 38px;
 `;
 
-const CommentBox = styled(HereBox)`
+const CommentBox = styled.div`
   border: 1px solid black;
   width: 920px;
   height: 332px;
   border-radius: 10px;
   display: flex;
+  background-color: beige;
   flex-direction: column;
 `;
 
@@ -83,10 +84,80 @@ const Context = styled.div`
   line-height: 1.4em;
 `;
 
-const Comment = styled.div``;
+const Comment = styled.div`
+  border: 1px solid black;
+`;
+
+const CommentTitle = styled.div`
+  border: 1px solid black;
+  font-size: 25px;
+  margin: 20px;
+  font-weight: bold;
+  `
+
+const PostDate = styled.div`
+  width: 250px;
+  font-size: 25px;
+  height: 30px;
+  font-weight: 400;
+  position: fixed; /* Fix the position */
+  top: 28%;
+  left: 63%;
+`;
+
+  const TitleBox = styled.div`
+  display:flex;
+  justify-content:space-between;
+  `
+
+  const CommentForm = styled.form`
+  margin: 20px;
+  `;
+
+const CommentInput = styled.input`
+width: 100%;
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 5px;
+`;
+
+  const UploadButton = styled.button`
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+`;
+
+const CommentFooter = styled.div`
+display: flex;
+justify-content: space-between;
+align-items: center;
+`;
+
+const UploadedComment = styled.div`
+  font-size: 18px;
+  font-weight: 500;
+`;
 
 // Define your main functional component
 const Post2 = () => {
+  const [comments, setComments] = useState([]);
+  const [newComment, setNewComment] = useState("");
+
+  const handleCommentChange = (event) => {
+    setNewComment(event.target.value);
+  };
+
+  const handleSubmitComment = (event) => {
+    event.preventDefault();
+    if (newComment.trim() !== "") {
+      setComments([...comments, newComment]);
+      setNewComment("");
+    }
+  };
+
   return (
     <Outer>
       <Text>요청 상세 페이지</Text>
@@ -99,7 +170,9 @@ const Post2 = () => {
       </HereBox>
 
       <PostBox>
+        <TitleBox>
         <Title>제목</Title>
+        <PostDate>2023.10.10</PostDate></TitleBox>
         <HorizonLine />
         <Context>
           내용
@@ -110,8 +183,21 @@ const Post2 = () => {
 
       <ClipBox>영상임베디드</ClipBox>
       <CommentBox>
-        댓글
-        <Comment>eot</Comment>
+        <CommentTitle>Comment</CommentTitle>
+        <CommentForm onSubmit={handleSubmitComment}>
+          <CommentFooter>
+            <UploadButton type="submit">Upload!</UploadButton>
+            <CommentInput
+              type="text"
+              placeholder="Write a comment..."
+              value={newComment}
+              onChange={handleCommentChange}
+            />
+          </CommentFooter>
+        </CommentForm>
+        {comments.map((comment, index) => (
+          <UploadedComment key={index}>{comment}</UploadedComment>
+        ))}
       </CommentBox>
     </Outer>
   );
