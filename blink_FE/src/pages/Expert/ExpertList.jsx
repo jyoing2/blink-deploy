@@ -29,14 +29,10 @@ const formatExperience = (experience) => {
 
 // 변호사 리스트업 컴포넌트
 export default function ExpertList() {
-  const [selectedCardData, setSelectedCardData] = useState(() => {
-    const storedCardData = localStorage.getItem("selectedCardData");
-    return storedCardData ? JSON.parse(storedCardData) : null;
-  });
+  const [selectedCardData, setSelectedCardData] = useState("");
 
   const handleCardClick = (card) => {
     setSelectedCardData(card);
-    localStorage.setItem("selectedCardData", JSON.stringify(card));
   };
 
   return (
@@ -49,7 +45,6 @@ export default function ExpertList() {
           <option value="relevant">관련도 순</option>
         </Range>
         <input type="submit" value="적용" />
-        <button type="button">내 스크랩</button>
         <Outline>
           {CardData.map((card, index) => (
             <Link key={index} to={`/expert/detail/${card.Id}`}>
