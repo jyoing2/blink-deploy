@@ -5,6 +5,11 @@ export const Upper = styled.div`
   display: flex;
 `;
 
+export const Close = styled.p`
+  font-size: 30px;
+  margin-left: 390px;
+`;
+
 export const Container = styled.div`
   margin-left: ${(props) => (props.selectedCardData !== null ? "" : "200px")};
   width: ${(props) =>
@@ -86,7 +91,7 @@ export const Wrapping = styled.div`
 //ExpertDetail.jsx
 export const Box = styled.div`
   width: 460px;
-  height: fit-content;
+  height: auto;
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
   margin-left: 200px;
@@ -98,14 +103,14 @@ export const Box = styled.div`
   flex-direction: column;
 `;
 
-export const DetailImg = styled.div`
+export const DetailImg = styled.img`
   width: 210px;
   height: 200px;
   margin-top: 15px;
   border-radius: 15px;
-  background-color: black;
   margin-left: auto;
   margin-right: auto;
+  border: 1px solid black;
 `;
 export const Section = styled.div`
   margin-left: auto;
@@ -126,12 +131,9 @@ export const DetailName = styled.p`
   line-height: 20px;
 `;
 
-export const RequestBtn = styled.input`
-  width: 130px;
-  height: 40px;
+export const RequestBtn = styled.div`
   border-radius: 10px;
-  background-color: #34446d;
-  color: white;
+  color: gray;
   font-size: 20px;
   font-weight: 600;
   margin-left: auto;
