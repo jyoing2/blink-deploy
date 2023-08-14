@@ -7,6 +7,12 @@ const FileUploadContainer = styled.div`
   align-items:center;
 `;
 
+const VideoThumbnail = styled.video`
+  width: 250px;
+  max-height: 250px;
+  border: 1px solid black;
+`;
+
 const FileInput = styled.input`
   display: none;
 `;
@@ -83,7 +89,7 @@ export default function FileUpload({
       <FileInput
         id="fileInput"
         type="file"
-        accept=".png, .jpg, .jpeg, .pdf"
+        accept=".png, .jpg, .jpeg, .pdf, .mov, .mp4"
         multiple
         onChange={handleFileChange}
       />
@@ -93,10 +99,18 @@ export default function FileUpload({
       <ThumbnailsContainer>
         {selectedFiles.map((file, index) => (
           <ThumbnailWrapper key={index}>
-            <ThumbnailComponent
-              src={URL.createObjectURL(file)}
-              alt={`Thumbnail ${index + 1}`}
-            />
+            {file.type.startsWith("image/") ? (
+              <ThumbnailComponent
+                src={URL.createObjectURL(file)}
+                alt={`Thumbnail ${index + 1}`}
+              />
+            ) : file.type.startsWith("video/") ? (
+              <VideoThumbnail controls>
+                <source src={URL.createObjectURL(file)} type={file.type} />
+              </VideoThumbnail>
+            ) : (
+              <div>Unsupported File Type</div>
+            )}
             <button onClick={() => handleRemoveFile(index)}>파일 삭제</button>
           </ThumbnailWrapper>
         ))}

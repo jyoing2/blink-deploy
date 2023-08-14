@@ -1,5 +1,6 @@
 //Post.jsx
 // #1 메인 - 글쓰기 페이지 총괄
+
 import React, { useState } from "react";
 import styled from "styled-components";
 import AdrSearch from "./AdrSearch";
@@ -29,6 +30,7 @@ const Outer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 100px;
 `;
 
 const CheckDisplay = styled.div`
@@ -57,7 +59,7 @@ const Checkbox = styled.input`
 
 const AdrSearchContainer = styled.div`
   position: fixed;
-  top: 320px;
+  top: 5720px;
   left: 250px;
   padding: 20px;
   border: 1px solid black;
@@ -365,10 +367,10 @@ export default function Post() {
             <>
               <CustomCloudUploadIcon />
               <UploadText>
-                Only .png, .jpg, .jpeg, .pdf types of files can be uploaded.
+                .mov, .mp4 .png, .jpg, .jpeg, .pdf 파일을 업로드해주세요.
                 <br />
                 <br />
-                You can upload up to 2 pages.
+                최대 2장까지 업로드할 수 있습니다.
               </UploadText>
             </>
           )}
