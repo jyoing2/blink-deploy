@@ -49,16 +49,16 @@ function App() {
         {/* <Route path="/" element={<Layout />} /> */}
         {/* <Route index element={<Home />} /> */}
         {/* <Route index element={<KMap />} /> */}
-        {/* <Route index element={<Signin />}></Route> */}
-        {/* <Route index element={<Post />} /> */}
-        {/* <Route index element={<Signup />}></Route> */}
-        {/* <Route index element={<ExpertSignup />}></Route> */}
-        {/* #4 변호사 페이지 렌더링 코드 */}
-        <Route path="/expert" element={<ExpertList />}>
-          <Route
+        <Route index element={<Signin />}>
+          {/* <Route index element={<Post />} /> */}
+          {/* <Route index element={<Signup />}></Route> */}
+          {/* <Route index element={<ExpertSignup />}></Route> */}
+          {/* #4 변호사 페이지 렌더링 코드 */}
+          {/* <Route path="/expert" element={<ExpertList />}> */}
+          {/* <Route
             path="detail/:Id"
             element={<ExpertDetail CardData={CardData} />}
-          />
+          /> */}
         </Route>
       </Routes>
     </>
