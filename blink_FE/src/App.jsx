@@ -11,7 +11,7 @@ import KMap from "./components/post/KMap";
 import ExpertList from "./pages/Expert/ExpertList";
 import ExpertDetail from "./pages/Expert/ExpertDetail";
 import { CardData } from "./pages/Expert/ExpertData";
-import Nav from "./components/Layout/Nav";
+import Nav from "./components/Layout/Nav/Nav";
 import Signup from "./pages/Auth/Signup/signup";
 import { Outlet } from "react-router-dom";
 import ExpertSignup from "./pages/Auth/Signup/ExpertSignup";
@@ -47,9 +47,10 @@ function App() {
         <Route index element={<KMap />} />
         {/* <Route index element={<Post />} /> */}
         {/* <Route path="/" element={<Layout />} /> */}
-        <Route index element={<Home />} />
+        {/* <Route index element={<Home />} /> */}
         {/* <Route index element={<KMap />} /> */}
         {/* <Route index element={<Signin />}></Route> */}
+        {/* <Route index element={<Post />} /> */}
         {/* <Route index element={<Signup />}></Route> */}
         {/* <Route index element={<ExpertSignup />}></Route> */}
         {/* #4 변호사 페이지 렌더링 코드 */}

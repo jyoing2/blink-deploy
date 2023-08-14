@@ -93,7 +93,7 @@ const CommentTitle = styled.div`
   font-size: 25px;
   margin: 20px;
   font-weight: bold;
-  `
+`;
 
 const PostDate = styled.div`
   width: 250px;
@@ -105,23 +105,23 @@ const PostDate = styled.div`
   left: 63%;
 `;
 
-  const TitleBox = styled.div`
-  display:flex;
-  justify-content:space-between;
-  `
-
-  const CommentForm = styled.form`
-  margin: 20px;
-  `;
-
-const CommentInput = styled.input`
-width: 100%;
-padding: 10px;
-border: 1px solid #ccc;
-border-radius: 5px;
+const TitleBox = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
 
-  const UploadButton = styled.button`
+const CommentForm = styled.form`
+  margin: 20px;
+`;
+
+const CommentInput = styled.input`
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+`;
+
+const UploadButton = styled.button`
   background-color: #007bff;
   color: white;
   border: none;
@@ -131,9 +131,9 @@ border-radius: 5px;
 `;
 
 const CommentFooter = styled.div`
-display: flex;
-justify-content: space-between;
-align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 const UploadedComment = styled.div`
@@ -171,8 +171,9 @@ const Post2 = () => {
 
       <PostBox>
         <TitleBox>
-        <Title>제목</Title>
-        <PostDate>2023.10.10</PostDate></TitleBox>
+          <Title>제목</Title>
+          <PostDate>2023.10.10</PostDate>
+        </TitleBox>
         <HorizonLine />
         <Context>
           내용

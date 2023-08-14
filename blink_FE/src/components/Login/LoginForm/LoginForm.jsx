@@ -6,7 +6,6 @@ import { StyledLoginButton } from "./style";
 
 export function LoginInputComponent({
   placeholder,
-  required,
   type,
   name,
   onChange,
@@ -17,7 +16,7 @@ export function LoginInputComponent({
 }) {
   return (
     <LoginInput
-      required={required}
+      required
       placeholder={placeholder}
       type={type}
       name={name}

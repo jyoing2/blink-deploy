@@ -11,13 +11,6 @@ import {
 
 // import ExpertSignup from "../Signup/ExpertSignup";
 
-//image import
-import GoogleIcon from "../../../assets/images/google.png";
-import KakaoIcon from "../../../assets/images/kakao.png";
-import NaverIcon from "../../..//assets/images/naver.png";
-
-import { Line } from "../../../components/Login/LoginLine/Line";
-
 function Signup() {
   const [user, setUser] = useState({
     id: "",
@@ -157,41 +150,6 @@ function Signup() {
         {/* 가입하기 버튼 */}
         <LoginButton type="submit" buttonText="회원가입 완료하기" />
 
-        <Line text="or" margin="30px 0" />
-        {/* 소셜로그인 버튼 */}
-        <S.SocialLogin>
-          <SocialLoginButton
-            onClick={() => {
-              console.log("구글로그인");
-            }}
-            socialImg={GoogleIcon}
-            socialalt="구글 아이콘"
-            socialText="Google"
-          />
-
-          <SocialLoginButton
-            backgroundColor="#FFE812"
-            borderColor="none"
-            onClick={() => {
-              console.log("카카오톡 로그인");
-            }}
-            socialImg={KakaoIcon}
-            socialalt="카카오 아이콘"
-            socialText="kakao"
-          />
-
-          <SocialLoginButton
-            backgroundColor="#06C755"
-            borderColor="none"
-            onClick={() => {
-              console.log("네이버 로그인");
-            }}
-            socialImg={NaverIcon}
-            socialalt="네이버 아이콘"
-            socialText="Naver"
-            color="white"
-          />
-        </S.SocialLogin>
         <S.ExpertPageMove>
           <S.Expertint>
             변호사, 손해사정사 등 전문가이신가요?
