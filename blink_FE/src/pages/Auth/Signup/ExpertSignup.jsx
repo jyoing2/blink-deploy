@@ -174,7 +174,7 @@ export default function ExpertSignup() {
       </S.SignUpInputContainer>
       <LoginNavigates
         showIcon={true}
-        width="330px"
+        width="350px"
         position="relative"
         top="0%"
         LoginNavigatetitle="INFO"

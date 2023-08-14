@@ -2,7 +2,7 @@
 import React from "react";
 import styled from "styled-components";
 // import { MdLocationOn } from "react-icons/md";
-import HorizonLine from "./Line";
+import HorizonLine from "../../components/Layout/Line";
 
 // Define a styled component
 

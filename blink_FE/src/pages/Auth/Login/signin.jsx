@@ -1,19 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   LoginInputComponent,
   LoginButton,
 } from "../../../components/Login/LoginForm/LoginForm";
 import { SigninForm, SocialLogin, SigninWrapper } from "./style";
 import { LoginTitleComponent } from "../../../components/Login/LoginForm/LoginTitle";
-import { SocialLoginButton } from "../../../components/Login/SocialLogin/socialLogins";
 import { LoginNavigates } from "../../../components/Login/LoginNavigateBar/LoginNavigates";
-
-//image import
-import GoogleIcon from "../../../assets/images/google.png";
-import KakaoIcon from "../../../assets/images/kakao.png";
-import NaverIcon from "../../..//assets/images/naver.png";
-
-import { Line } from "../../../components/Login/LoginLine/Line";
 
 import * as S from "./style";
 
@@ -24,6 +17,9 @@ function Signin() {
     id: "",
     pw: "",
   });
+
+  const [pw, setPw] = useState("");
+  const navigate = useNavigate();
 
   //유효성 검증 위함
   const [isValid, setIsValid] = useState(false);
@@ -56,6 +52,12 @@ function Signin() {
       alert("모든 칸을 입력해주세요 :)");
     }
   };
+  // 비밀번호 확인 입력
+  const handlePw = (e) => {
+    const pw = e.target.value;
+    setPw(pw);
+    setLoginData({ ...loginData, pw: pw });
+  };
 
   const handleLoginClick = () => {
     if (loginData.id === "") {
@@ -81,14 +83,15 @@ function Signin() {
         LoginNavigatecotent="처음이신가요? 회원가입하고 멋진 블랙 박스 어쩌구 조정중"
         handleLoginClick={handleLoginClick}
         buttonText="Sign up"
+        width="200px"
       />
-      <SigninForm onSubmit={handleSubmit}>
+      <S.SigninForm onSubmit={handleSubmit}>
         <LoginTitleComponent LogintitleText="Login to Blink!" />
         <S.SignInInputWrapper>
           <LoginInputComponent
             required
             type="email"
-            onChange={handleInputChange}
+            onChange={(e) => setLoginData({ ...loginData, id: e.target.value })}
             placeholder="이메일을 입력하세요"
             isvaild="true"
             value={loginData.id}
@@ -99,12 +102,13 @@ function Signin() {
         <S.SignInInputWrapper>
           <LoginInputComponent
             type="password"
-            onChange={handleInputChange}
+            onChange={handlePw}
             placeholder="비밀번호를 입력하세요"
             isvaild="true"
             value={loginData.pw}
             name="pw"
             handleLoginClick={handleLoginClick}
+            required
           />
         </S.SignInInputWrapper>
 
@@ -113,43 +117,7 @@ function Signin() {
           onClick={handleLoginClick}
           buttonText="로그인"
         />
-
-        <Line text="or" />
-        {/* 소셜로그인 버튼 */}
-        <SocialLogin>
-          <SocialLoginButton
-            onClick={() => {
-              console.log("구글로그인");
-            }}
-            socialImg={GoogleIcon}
-            socialalt="구글 아이콘"
-            socialText="Google"
-          />
-
-          <SocialLoginButton
-            backgroundColor="#FFE812"
-            borderColor="none"
-            onClick={() => {
-              console.log("카카오톡 로그인");
-            }}
-            socialImg={KakaoIcon}
-            socialalt="카카오 아이콘"
-            socialText="kakao"
-          />
-
-          <SocialLoginButton
-            backgroundColor="#06C755"
-            borderColor="none"
-            onClick={() => {
-              console.log("네이버 로그인");
-            }}
-            socialImg={NaverIcon}
-            socialalt="네이버 아이콘"
-            socialText="Naver"
-            color="white"
-          />
-        </SocialLogin>
-      </SigninForm>
+      </S.SigninForm>
     </SigninWrapper>
     // </SigninWhole>
   );

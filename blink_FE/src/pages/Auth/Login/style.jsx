@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const SigninForm = styled.div`
-  width: 65vw;
+  width: 55vw;
   height: 100%;
   display: flex;
   flex-direction: column;
