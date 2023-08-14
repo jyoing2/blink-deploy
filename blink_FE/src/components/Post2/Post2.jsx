@@ -1,8 +1,8 @@
 // Import necessary libraries
 import React from "react";
 import styled from "styled-components";
-import { MdLocationOn } from "react-icons/md";
-import HorizonLine from "./Line.jsx"
+// import { MdLocationOn } from "react-icons/md";
+import HorizonLine from "./Line";
 
 // Define a styled component
 
@@ -42,8 +42,8 @@ const Here = styled.div`
   height: 38px;
   display: flex;
   align-items: center;
-  margin-left:10px;
-  font-weight:500;
+  margin-left: 10px;
+  font-weight: 500;
   border-radius: 10px;
 `;
 
@@ -53,8 +53,7 @@ const PostBox = styled.div`
   height: 371px;
   border-radius: 10px;
   font-size: 38px;
-
-`
+`;
 
 const CommentBox = styled(HereBox)`
   border: 1px solid black;
@@ -62,7 +61,7 @@ const CommentBox = styled(HereBox)`
   height: 332px;
   border-radius: 10px;
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
 `;
 
 const ClipBox = styled.div`
@@ -79,13 +78,12 @@ const Title = styled.div`
 
 const Context = styled.div`
   font-size: 23px;
-  font-weight:500;
+  font-weight: 500;
   margin: 30px 40px 20px 32px;
-  line-height:1.4em;
+  line-height: 1.4em;
 `;
 
-const Comment = styled.div`
-`
+const Comment = styled.div``;
 
 // Define your main functional component
 const Post2 = () => {
@@ -94,22 +92,27 @@ const Post2 = () => {
       <Text>요청 상세 페이지</Text>
       <HereBox>
         <>
-        &nbsp; <MdLocationOn size={30} />
-        요청 위치</>
+          &nbsp; <MdLocationOn size={30} />
+          요청 위치
+        </>
         <Here>: 실제위치</Here>
       </HereBox>
 
       <PostBox>
         <Title>제목</Title>
-      <HorizonLine />
-        <Context>내용<br/>둘쨋줄</Context>
+        <HorizonLine />
+        <Context>
+          내용
+          <br />
+          둘쨋줄
+        </Context>
       </PostBox>
 
       <ClipBox>영상임베디드</ClipBox>
-      <CommentBox>댓글
+      <CommentBox>
+        댓글
         <Comment>eot</Comment>
       </CommentBox>
-
     </Outer>
   );
 };
