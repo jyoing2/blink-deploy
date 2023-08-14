@@ -28,18 +28,14 @@ function CustomGMap() {
   const [map, setMap] = useState(null);
   const [autocomplete, setAutocomplete] = useState(null);
   const [predictions, setPredictions] = useState([]);
-  const [selectedPlace, setSelectedPlace] = useState(null); // 선택된 장소 정보 추가
-  const [clickedLocation, setClickedLocation] = useState(null); // 클릭한 위치 정보 추가
-  const [markers, setMarkers] = useState([]); // 마커 배열 추가
+  const [selectedPlace, setSelectedPlace] = useState(null);
+  const [clickedLocation, setClickedLocation] = useState(null);
+  const [markers, setMarkers] = useState([]);
+  const [center, setCenter] = useState({ lat: 37.468352, lng: 127.039021 }); // 추가: 중앙 위치 상태
 
   const containerStyle = {
     width: "100%",
     height: "100%",
-  };
-
-  const center = {
-    lat: 37.569227,
-    lng: 126.9777256,
   };
 
   useEffect(() => {
@@ -60,9 +56,8 @@ function CustomGMap() {
 
   const initMap = () => {
     const mapOptions = {
-      center: center,
+      center: center, // 중앙 위치 설정
       zoom: 16,
-      // map에서 fullscreen 버튼 지우기
       fullscreenControl: false,
     };
     const newMap = new window.google.maps.Map(
@@ -70,12 +65,10 @@ function CustomGMap() {
       mapOptions
     );
 
-    // 클릭 이벤트 리스너 추가
     newMap.addListener("click", (event) => {
       const clickedLatLng = event.latLng.toJSON();
       setClickedLocation(clickedLatLng);
 
-      // 마커 추가
       clearMarkers();
       const marker = new window.google.maps.Marker({
         position: clickedLatLng,
@@ -83,6 +76,12 @@ function CustomGMap() {
         title: "선택한 위치",
       });
       setMarkers([marker]);
+    });
+
+    // 중앙 위치가 변경되면 맵의 중앙 위치를 업데이트합니다.
+    newMap.addListener("center_changed", () => {
+      const newCenter = newMap.getCenter().toJSON();
+      setCenter(newCenter);
     });
 
     setMap(newMap);
@@ -112,6 +111,7 @@ function CustomGMap() {
     }
   };
 
+  // handlePlaceSelection 함수를 다음과 같이 수정
   const handlePlaceSelection = async (placeId) => {
     if (!map) return;
 
@@ -134,9 +134,24 @@ function CustomGMap() {
 
         // Store the marker reference to clear later
         setMarkers([marker]);
+
+        // Update clickedLocation to the selected place's location
+        setClickedLocation(place.geometry.location.toJSON());
       }
     });
   };
+
+  // render 함수 내에서 선택된 장소 정보 출력 부분 수정
+  {
+    selectedPlace && (
+      <div>
+        <p>선택한 장소: {selectedPlace}</p>
+        <button onClick={() => handlePlaceSelection(selectedPlace)}>
+          선택한 장소 보기
+        </button>
+      </div>
+    );
+  }
 
   // Add marker to selected place
   const addMarkerToPlace = (place) => {
@@ -167,22 +182,6 @@ function CustomGMap() {
   const mapviewMarkerClickHandler = (e) => {
     // Handle marker click event
   };
-
-  // const handleMapClick = (event) => {
-  //   const clickedLatLng = event.latLng.toJSON();
-  //   setClickedLocation(clickedLatLng);
-
-  //   // 기존 마커 제거
-  //   clearMarkers();
-
-  //   // 새 마커 추가
-  //   const newMarker = new window.google.maps.Marker({
-  //     position: clickedLatLng,
-  //     map: map,
-  //     title: "선택한 위치",
-  //   });
-  //   setMarkers([newMarker]);
-  // };
 
   return (
     <>
@@ -216,6 +215,11 @@ function CustomGMap() {
           <p>경도: {clickedLocation.lng.toFixed(6)}</p>
         </div>
       )}
+      <div>
+        <p>현재 지도 중심 위치:</p>
+        <p>위도: {center.lat.toFixed(6)}</p>
+        <p>경도: {center.lng.toFixed(6)}</p>
+      </div>
     </>
   );
 }
