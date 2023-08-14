@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import styled from "styled-components";
 import * as S from "./Styled";
+import LogoIcon from "../../assets/images/Logo.png";
 
 export default function Nav() {
   const scrollToRef = (ref) => {
@@ -16,9 +17,12 @@ export default function Nav() {
 
   return (
     <S.NavContainer>
-      <S.NavItem onClick={() => scrollToRef(nav1Ref)}>nav1</S.NavItem>
+      <S.NavLogo>
+        <S.NavLogoImage src={LogoIcon} alt="Logo" />
+      </S.NavLogo>
+      {/* <S.NavItem onClick={() => scrollToRef(nav1Ref)}>nav1</S.NavItem>
       <S.NavItem onClick={() => scrollToRef(nav2Ref)}>nav2</S.NavItem>
-      <S.NavItem onClick={() => scrollToRef(nav3Ref)}>nav3</S.NavItem>
+      <S.NavItem onClick={() => scrollToRef(nav3Ref)}>nav3</S.NavItem> */}
     </S.NavContainer>
   );
 }

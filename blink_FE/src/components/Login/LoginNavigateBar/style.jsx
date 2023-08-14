@@ -4,9 +4,11 @@ export const LoginNavigateTitle = styled.div`
   font-weight: 700;
   font-size: xx-large;
   color: white;
-  top: -80px;
+  top: ${(props) => props.Top || "-80px"};
   position: relative;
   line-height: 35px;
+  display: ${(props) => props.display || ""};
+  flex-direction: ${(props) => props.flexDirection || ""};
 `;
 
 export const LoginNavigateContent = styled.div`
@@ -42,4 +44,16 @@ export const LoginNavigateButton = styled.button`
 export const LoginNavigateText = styled.div`
   position: ${(props) => props.position || "relative"};
   ${(props) => props.top && `top: ${props.top};`}
+`;
+
+export const LNT = styled.div`
+  margin-top: ${(props) => props.marginTop || ""};
+`;
+
+export const email = styled.div`
+  bottom: -18%;
+  position: relative;
+  font-size: 1rem;
+  color: white;
+  opacity: 60%;
 `;

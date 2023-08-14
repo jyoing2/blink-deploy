@@ -16,6 +16,8 @@ import NaverIcon from "../../..//assets/images/naver.png";
 
 import { Line } from "../../../components/Login/LoginLine/Line";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 export default function ExpertSignup() {
   const [user, setUser] = useState({
     id: "",
@@ -156,26 +158,30 @@ export default function ExpertSignup() {
           />
         </S.SignUpInputWrapper>
 
-        {/* 가입하기 버튼 */}
-        <LoginButton type="submit" buttonText="회원가입 완료하기" />
-
         <S.HowSignup>
           <S.HowSignuptext>가입하게 된 경로를 알려주세요!</S.HowSignuptext>
-          <select value={selectedPath} onChange={handlePathChange}>
-            <option value="">-------- 선택해주세요 -------- </option>
+          <S.select required value={selectedPath} onChange={handlePathChange}>
+            <option value="">가입경로를 선택해주세요 :) </option>
             <option value="social">유튜브, 인스타그램 등 SNS</option>
             <option value="friend">지인 추천</option>
             <option value="search">검색</option>
             <option value="etc">기타</option>
             {/* 추가적인 선택지들을 여기에 추가할 수 있습니다 */}
-          </select>
+          </S.select>
         </S.HowSignup>
+        {/* 가입하기 버튼 */}
+        <LoginButton type="submit" buttonText="전문가로 회원가입하기" />
       </S.SignUpInputContainer>
       <LoginNavigates
+        showIcon={true}
         width="330px"
         position="relative"
-        top="10%"
+        top="0%"
         LoginNavigatetitle="INFO"
+        display="flex"
+        flexDirection="column"
+        marginTop="15px"
+        Top="-60px"
         LoginNavigatecotent={
           <>
             전문가 인증을 위해서는 <br />
@@ -196,7 +202,8 @@ export default function ExpertSignup() {
           </>
         }
         // handleLoginClick={handleLoginClick}
-        buttonText="Login"
+        showButton={false}
+        showEmail={true}
       />
     </S.SignupWhole>
   );
