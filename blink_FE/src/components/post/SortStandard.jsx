@@ -1,24 +1,35 @@
 import * as React from "react";
-import FormControl from "@mui/joy/FormControl";
-import FormLabel from "@mui/joy/FormLabel";
-import Radio from "@mui/joy/Radio";
-import RadioGroup from "@mui/joy/RadioGroup";
 import styled from "styled-components";
+import Box from "@mui/joy/Box";
+import Checkbox from "@mui/joy/Checkbox";
 
-const ButtonGroup = styled(RadioGroup)`
+const BoxGroup = styled(Box)`
   display: flex;
-  flex-direction: row; /* 가로 방향으로 정렬 */
-  justify-content: center;
-  background-color: gray;
+  justify-content: flex-end;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: 20px;
 `;
 
 export default function SortStandard() {
+  const [selectedOption, setSelectedOption] = React.useState("");
+
+  const handleCheckboxChange = (value) => {
+    setSelectedOption(value);
+  };
+
   return (
-    <FormControl>
-      <ButtonGroup defaultValue="outlined" name="radio-buttons-group">
-        <Radio value="recent" label="최신순" variant="plain" />
-        <Radio value="oldest" label="오래된 순" variant="plain" />
-      </ButtonGroup>
-    </FormControl>
+    <BoxGroup sx={{ display: "flex", gap: 3 }}>
+      <Checkbox
+        label="최신순"
+        checked={selectedOption === "최신순"}
+        onChange={() => handleCheckboxChange("최신순")}
+      />
+      <Checkbox
+        label="오래된 순"
+        checked={selectedOption === "오래된 순"}
+        onChange={() => handleCheckboxChange("오래된 순")}
+      />
+    </BoxGroup>
   );
 }
