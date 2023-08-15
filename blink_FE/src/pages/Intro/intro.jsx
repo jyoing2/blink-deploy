@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import * as S from "./style";
 
 //image import
-import LogoIcon from "../../assets/images/Logo.png";
+import LogoIcon from "../../assets/images/NuLogo.png";
 
 export default function IntroScreen() {
   const [scrollOpacity, setScrollOpacity] = useState(1);
