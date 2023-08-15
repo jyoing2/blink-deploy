@@ -163,13 +163,18 @@ function CustomGMap() {
       // 클릭 이벤트 리스너를 제거하여 클릭 이벤트 비활성화
       window.google.maps.event.removeListener(clickListener);
       setClickDisabled(true);
+
+      // 클릭 이벤트 리스너를 추가하여 클릭 시 알림 띄우기
+      clickListener = map.addListener("click", () => {
+        window.alert("마커 기능이 제한되어 있습니다.");
+      });
     }
   };
 
   const temporarilyEnableClickEvent = () => {
     // 클릭 이벤트 리스너를 다시 추가하여 클릭 이벤트 활성화
-    clickListener = map.addListener("click", (event) => {
-      if (!clickDisabled) {
+    if (clickDisabled) {
+      clickListener = map.addListener("click", (event) => {
         const clickedLatLng = event.latLng.toJSON();
         setClickedLocation(clickedLatLng);
 
@@ -184,9 +189,9 @@ function CustomGMap() {
         });
         setMarker(newMarker);
         setMarkers([...markers, newMarker]);
-      }
-    });
-    setClickDisabled(false);
+      });
+      setClickDisabled(false);
+    }
   };
 
   return (
