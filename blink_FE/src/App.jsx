@@ -17,6 +17,7 @@ import { Outlet } from "react-router-dom";
 import ExpertSignup from "./pages/Auth/Signup/ExpertSignup";
 import Post2 from "./components/Post2/Post2";
 
+import Intro from "./pages/Intro/intro";
 
 /* 추가적인 리셋이나 스타일 조정을 여기에 추가할 수 있습니다. */
 const GlobalStyleComponent = createGlobalStyle`
@@ -40,7 +41,7 @@ function App() {
   return (
     <>
       <GlobalStyleComponent />
-      <Nav />
+      {/* <Nav /> */}
       <Routes>
         {/* <Route index element={<KMap />} /> */}
         <Route index element={<Post />} />
@@ -48,18 +49,20 @@ function App() {
         {/* <Route index element={<Home />} /> */}
         {/* // <Route index element={<KMap />} /> */}
         {/* <Route path="/" element={<Layout />} /> */}
-        {/* <Route index element={<Home />} /> */}
+        <Route index element={<Home />} />
         {/* <Route index element={<KMap />} /> */}
         {/* <Route index element={<Signin />}> */}
-          {/* <Route index element={<Post2 />} /> */}
-          {/* <Route index element={<Signup />}></Route> */}
-          {/* <Route index element={<ExpertSignup />}></Route> */}
-          {/* #4 변호사 페이지 렌더링 코드 */}
-          {/* <Route path="/expert" element={<ExpertList />}> */}
-          {/* <Route
+        {/* <Route index element={<Post />} /> */}
+        {/* <Route index element={<Intro />}> */}
+        {/* <Route index element={<Signup />}> */}
+        {/* <Route index element={<ExpertSignup />}> */}
+        {/* #4 변호사 페이지 렌더링 코드 */}
+        {/* <Route path="/expert" element={<ExpertList />}> */}
+        {/* <Route
             path="detail/:Id"
             element={<ExpertDetail CardData={CardData} />}
           /> */}
+        {/* </Route> */}
       </Routes>
     </>
   );

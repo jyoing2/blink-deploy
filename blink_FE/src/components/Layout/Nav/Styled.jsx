@@ -68,9 +68,9 @@ export const NavIcon = styled.div`
   cursor: pointer;
   transition: box-shadow 0.3s ease;
   &:hover {
-    /* background-color: #34446d;
-    box-shadow: 7px 3px 3px white; */
-    opacity: 0.3;
+    background-color: #34446d;
+    /* box-shadow: 7px 3px 3px white; */
+    /* opacity: 0.3; */
 
     svg {
       color: white;
