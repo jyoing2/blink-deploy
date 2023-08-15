@@ -39,7 +39,7 @@ function App() {
   return (
     <>
       <GlobalStyleComponent />
-      <Nav />
+      {/* <Nav /> */}
       <Routes>
         {/* <Route index element={<KMap />} /> */}
         {/* <Route index element={<Post />} />
